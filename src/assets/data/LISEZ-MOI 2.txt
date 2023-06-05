@@ -1,0 +1,148 @@
+﻿Ce fichier LISEZ-MOI a ŽtŽ produit le 2023-04-25 par Jean-Hugues Roy
+
+--------------------
+INFORMATION GƒNƒRALE
+--------------------
+
+Titre du jeu de donnŽes : Thses et mŽmoires du QuŽbec (2000-2022)
+
+Renseignements concernant l'auteur:
+
+	Chercheur principal:
+	Jean-Hugues Roy
+	UniversitŽ du QuŽbec ˆ MontrŽal 
+	roy.jean-hugues@uqam.ca
+	
+
+Description sommaire :
+
+DonnŽes sur les thses et mŽmoires publiŽs dans les universitŽs du QuŽbec entre les annŽes 2000 et 2022 inclusivement.
+
+Les donnŽes ont principalement ŽtŽ moissonnŽes par l'auteur sur les rŽpertoires institutionnels de 17 des 18 universitŽs du QuŽbec avec, pour point de dŽpart, la section MŽmoires et thses d'ƒrudit (https://www.erudit.org/fr/theses/). Une proportion de 94,1% des donnŽes du fichier provient de cette source.
+
+Des thses et mŽmoires non rŽpertoriŽs par ƒrudit ont ŽtŽ ajoutŽs au moyen des deux sources suivantes:
+
+ProQuest Dissertations and Theses (https://about.proquest.com/fr/dissertations/), dans une proportion de 5,5% du fichier (merci ˆ Vincent Larivire pour avoir fourni un accs ˆ cette source).
+
+La collection Thses Canada de Bibliothque et Archives Canada (https://bibliotheque-archives.canada.ca/fra/services/services-bibliotheques/theses/Pages/theses-canada.aspx), dans une proportion de 0,4% du fichier (merci ˆ Alexander Jerabek, Pierre Nault et MŽlanie Verville du Service des bibliothques de l'UQAM).
+
+Date de la collecte de donnŽes: Mars et avril 2023.
+
+Date de production des donnŽes : 20230423
+
+Date de publication des donnŽes : 20230424
+
+Renseignements concernant les organismes subventionnaires ou commanditaires de cette collecte de donnŽes:
+Aucun.
+
+--------------------------------------------------
+INFORMATION D'ACCéS/PARTAGE DES DONNƒES
+--------------------------------------------------
+
+RŽfŽrence bibliographique de ce jeu de donnŽes:
+Roy, J.-H. (2023). Thses et mŽmoires du QuŽbec (2000-2022). [Jeu de donnŽes]. Borealis UQAM. https://doi.org/10.5683/SP3/E7MS9S 
+
+Licences/restrictions en lien avec les donnŽes, ou limitations d'utilisation:
+Jeu de donnŽes sous licence CC BY-NC-SA 4.0 
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+Voir aussi : Politique d'utilisation des services d'ƒrudit : https://www.erudit.org/public/documents/FR_Politique_utilisation_Erudit_2.1.2.pdf
+
+RŽfŽrences bibliographiques et hyperliens aux publications liŽes ˆ ce jeu de donnŽes:
+
+RŽpertoire institutionnel de l'ƒcole nationale d'administration publique (Espace ƒNAP): https://espace.enap.ca
+
+RŽpertoire institutionnel de l'ƒcole de technologie supŽrieure (Espace ƒTS): https://espace.etsmtl.ca
+
+RŽpertoire institutionnel de HEC MontrŽal (RŽflexion HEC): https://reflexion.hec.ca
+
+RŽpertoire institutionnel de l'Institut national de la recherche scientifique (Espace INRS): https://espace.inrs.ca
+
+RŽpertoire institutionnel de Polytechnique MontrŽal (PolyPublie): https://publications.polymtl.ca
+
+RŽpertoire institutionnel de l'UniversitŽ Concordia (Spectrum): https://spectrum.library.concordia.ca
+
+RŽpertoire institutionnel de l'UniversitŽ de MontrŽal (Papyrus): https://papyrus.bib.umontreal.ca
+
+RŽpertoire institutionnel de l'UniversitŽ de Sherbrooke (Savoirs): https://savoirs.usherbrooke.ca
+
+RŽpertoire institutionnel de l'UniversitŽ du QuŽbec ˆ Chicoutimi (Constellation): https://constellation.uqac.ca
+
+RŽpertoire institutionnel de l'UniversitŽ du QuŽbec ˆ MontrŽal (Archipel): https://archipel.uqam.ca
+
+RŽpertoire institutionnel de l'UniversitŽ du QuŽbec ˆ Rimouski (SŽmaphore): https://semaphore.uqar.ca
+
+RŽpertoire institutionnel de l'UniversitŽ du QuŽbec ˆ Trois-Rivires (Cognitio): https://depot-e.uqtr.ca
+
+RŽpertoire institutionnel de l'UniversitŽ du QuŽbec en Abitibi-TŽmiscamingue (Depositum): https://depositum.uqat.ca
+
+RŽpertoire institutionnel de l'UniversitŽ du QuŽbec en Outaouais: https://di.uqo.ca
+
+RŽpertoire institutionnel de l'UniversitŽ Laval (Corpus): https://corpus.ulaval.ca
+
+RŽpertoire institutionnel de l'UniversitŽ McGill (eScholarship): https://escholarship.mcgill.ca
+
+RŽpertoire institutionnel de l'UniversitŽ TŽluq (Rlibre): https://r-libre.teluq.ca
+
+Autres liens permettant le libre accs ˆ ce jeu de donnŽes: Aucun
+
+Hyperliens (et relations) aux jeux de donnŽes complŽmentaires ou reliŽs ˆ ce jeu de donnŽes: Aucun
+
+-----------------------------
+APERCU DES DONNƒES & FICHIERS
+-----------------------------
+
+Liste des fichiers:
+	
+		LISEZ-MOI.txt
+		thesesmemoiresqc2000-2022.csv
+				
+DonnŽes supplŽmentaires colligŽes, en lien avec ce jeu de donnŽes, qui ne sont pas incluses ici: Aucune
+
+Si les donnŽes sont dŽrivŽes d'une autre source, l'identifier: Voir Information d'accs ci-dessus.
+
+Si plusieurs versions de ce jeu de donnŽes existent, inclure l'historique des mises ˆ jour: Pas sur 
+
+
+--------------------------
+INFORMATION METHODOLOGIQUE
+--------------------------
+
+Description de la mŽthodologie de collecte/production des donnŽes:
+Une description dŽtaillŽe de la mŽthodologie utilisŽe se trouve dans un rŽpertoire Github utilisŽ pour une version prŽcŽdente d'une analyse des donnŽes sur les thses et mŽmoires du QuŽbec rŽalisŽe en 2021: https://github.com/jhroy/theses2021
+
+Description des opŽrations de traitement des donnŽes: Cette description est incluse dans le rŽpertoire Github prŽcŽdemment mentionnŽ (https://github.com/jhroy/theses2021).
+
+Logiciel (ou instrument) spŽcifique utilisŽ pour interprŽter les donnŽes: Langage informatique Python. Bibliothques python requests, BeautifulSoup, PyPDF2, lingua et Selenium, notamment.
+
+Si applicable, renseignements concernant les normes et la calibration: Encodage des caractres: UTF-8
+
+DŽcrire les procŽdures d'assurance qualitŽ utilisŽes: Une vŽrification alŽatoire d'une centaine d'URL a ŽtŽ effectuŽe.
+
+Identifier les personnes impliquŽes dans la collecte, le traitement, l'analyse et/ou la diffusion des donnŽes: Jean-Hugues Roy pour toutes les Žtapes.
+
+------------------------------------------------------------
+RENSEIGNEMENTS CONCERNANT LE CONTENU DES FICHIERS DE DONNƒES ------------------------------------------------------------
+
+Nombre de variables: 12
+
+Nombre d'enregistrements/lignes: 110244
+
+Liste des variables, dŽfinitions et abrŽviations, unitŽs de mesure, codes ou symboles utilisŽs: Chaque ligne du fichier thesesmemoiresqc2000-2022.csv comprend les champs suivants:
+
+- Nom de l'universitŽ
+- Titre du document (mŽmoire ou thse)
+- AnnŽe de publication
+- Nom de l'auteur/trice
+- PrŽnom de l'auteur/trice
+- Discipline du mŽmoire ou de la thse
+- Grand domaine (sciences naturelles ou humaines)
+- Grade octroyŽ (ma”trise ou doctorat)
+- Langue du document (format ISO 639-1)
+- Nombre de pages
+- URL du document
+- Source des donnŽes (moissonnage JHR, Proquest ou BAC-LAC)
+   
+Codes de valeur manquante: "?" ou cellule vide.
+
+Format des donnŽes <texte, nombre, date, monnaie>, longueur de champ <nombre de caractre>, formats spŽcialisŽs, autres abrŽviations utilisŽes: Rien de particulier

@@ -1,0 +1,148 @@
+Ce fichier LISEZ-MOI a été produit le 2023-04-25 par Jean-Hugues Roy
+
+--------------------
+INFORMATION GÉNÉRALE
+--------------------
+
+Titre du jeu de données : Thèses et mémoires du Québec (2000-2022)
+
+Renseignements concernant l'auteur:
+
+	Chercheur principal:
+	Jean-Hugues Roy
+	Université du Québec à Montréal 
+	roy.jean-hugues@uqam.ca
+	
+
+Description sommaire :
+
+Données sur les thèses et mémoires publiés dans les universités du Québec entre les années 2000 et 2022 inclusivement.
+
+Les données ont principalement été moissonnées par l'auteur sur les répertoires institutionnels de 17 des 18 universités du Québec avec, pour point de départ, la section Mémoires et thèses d'Érudit (https://www.erudit.org/fr/theses/). Une proportion de 94,1% des données du fichier provient de cette source.
+
+Des thèses et mémoires non répertoriés par Érudit ont été ajoutés au moyen des deux sources suivantes:
+
+ProQuest Dissertations and Theses (https://about.proquest.com/fr/dissertations/), dans une proportion de 5,5% du fichier (merci à Vincent Larivière pour avoir fourni un accès à cette source).
+
+La collection Thèses Canada de Bibliothèque et Archives Canada (https://bibliotheque-archives.canada.ca/fra/services/services-bibliotheques/theses/Pages/theses-canada.aspx), dans une proportion de 0,4% du fichier (merci à Alexander Jerabek, Pierre Nault et Mélanie Verville du Service des bibliothèques de l'UQAM).
+
+Date de la collecte de données: Mars et avril 2023.
+
+Date de production des données : 20230423
+
+Date de publication des données : 20230424
+
+Renseignements concernant les organismes subventionnaires ou commanditaires de cette collecte de données:
+Aucun.
+
+--------------------------------------------------
+INFORMATION D'ACCÈS/PARTAGE DES DONNÉES
+--------------------------------------------------
+
+Référence bibliographique de ce jeu de données:
+Roy, J.-H. (2023). Thèses et mémoires du Québec (2000-2022). [Jeu de données]. Borealis UQAM. https://doi.org/10.5683/SP3/E7MS9S 
+
+Licences/restrictions en lien avec les données, ou limitations d'utilisation:
+Jeu de données sous licence CC BY-NC-SA 4.0 
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+Voir aussi : Politique d'utilisation des services d'Érudit : https://www.erudit.org/public/documents/FR_Politique_utilisation_Erudit_2.1.2.pdf
+
+Références bibliographiques et hyperliens aux publications liées à ce jeu de données:
+
+Répertoire institutionnel de l'École nationale d'administration publique (Espace ÉNAP): https://espace.enap.ca
+
+Répertoire institutionnel de l'École de technologie supérieure (Espace ÉTS): https://espace.etsmtl.ca
+
+Répertoire institutionnel de HEC Montréal (Réflexion HEC): https://reflexion.hec.ca
+
+Répertoire institutionnel de l'Institut national de la recherche scientifique (Espace INRS): https://espace.inrs.ca
+
+Répertoire institutionnel de Polytechnique Montréal (PolyPublie): https://publications.polymtl.ca
+
+Répertoire institutionnel de l'Université Concordia (Spectrum): https://spectrum.library.concordia.ca
+
+Répertoire institutionnel de l'Université de Montréal (Papyrus): https://papyrus.bib.umontreal.ca
+
+Répertoire institutionnel de l'Université de Sherbrooke (Savoirs): https://savoirs.usherbrooke.ca
+
+Répertoire institutionnel de l'Université du Québec à Chicoutimi (Constellation): https://constellation.uqac.ca
+
+Répertoire institutionnel de l'Université du Québec à Montréal (Archipel): https://archipel.uqam.ca
+
+Répertoire institutionnel de l'Université du Québec à Rimouski (Sémaphore): https://semaphore.uqar.ca
+
+Répertoire institutionnel de l'Université du Québec à Trois-Rivières (Cognitio): https://depot-e.uqtr.ca
+
+Répertoire institutionnel de l'Université du Québec en Abitibi-Témiscamingue (Depositum): https://depositum.uqat.ca
+
+Répertoire institutionnel de l'Université du Québec en Outaouais: https://di.uqo.ca
+
+Répertoire institutionnel de l'Université Laval (Corpus): https://corpus.ulaval.ca
+
+Répertoire institutionnel de l'Université McGill (eScholarship): https://escholarship.mcgill.ca
+
+Répertoire institutionnel de l'Université Téluq (Rlibre): https://r-libre.teluq.ca
+
+Autres liens permettant le libre accès à ce jeu de données: Aucun
+
+Hyperliens (et relations) aux jeux de données complémentaires ou reliés à ce jeu de données: Aucun
+
+-----------------------------
+APERCU DES DONNÉES & FICHIERS
+-----------------------------
+
+Liste des fichiers:
+	
+		LISEZ-MOI.txt
+		thesesmemoiresqc2000-2022.csv
+				
+Données supplémentaires colligées, en lien avec ce jeu de données, qui ne sont pas incluses ici: Aucune
+
+Si les données sont dérivées d'une autre source, l'identifier: Voir Information d'accès ci-dessus.
+
+Si plusieurs versions de ce jeu de données existent, inclure l'historique des mises à jour: Pas sur 
+
+
+--------------------------
+INFORMATION METHODOLOGIQUE
+--------------------------
+
+Description de la méthodologie de collecte/production des données:
+Une description détaillée de la méthodologie utilisée se trouve dans un répertoire Github utilisé pour une version précédente d'une analyse des données sur les thèses et mémoires du Québec réalisée en 2021: https://github.com/jhroy/theses2021
+
+Description des opérations de traitement des données: Cette description est incluse dans le répertoire Github précédemment mentionné (https://github.com/jhroy/theses2021).
+
+Logiciel (ou instrument) spécifique utilisé pour interpréter les données: Langage informatique Python. Bibliothèques python requests, BeautifulSoup, PyPDF2, lingua et Selenium, notamment.
+
+Si applicable, renseignements concernant les normes et la calibration: Encodage des caractères: UTF-8
+
+Décrire les procédures d'assurance qualité utilisées: Une vérification aléatoire d'une centaine d'URL a été effectuée.
+
+Identifier les personnes impliquées dans la collecte, le traitement, l'analyse et/ou la diffusion des données: Jean-Hugues Roy pour toutes les étapes.
+
+------------------------------------------------------------
+RENSEIGNEMENTS CONCERNANT LE CONTENU DES FICHIERS DE DONNÉES ------------------------------------------------------------
+
+Nombre de variables: 12
+
+Nombre d'enregistrements/lignes: 110244
+
+Liste des variables, définitions et abréviations, unités de mesure, codes ou symboles utilisés: Chaque ligne du fichier thesesmemoiresqc2000-2022.csv comprend les champs suivants:
+
+- Nom de l'université
+- Titre du document (mémoire ou thèse)
+- Année de publication
+- Nom de l'auteur/trice
+- Prénom de l'auteur/trice
+- Discipline du mémoire ou de la thèse
+- Grand domaine (sciences naturelles ou humaines)
+- Grade octroyé (maîtrise ou doctorat)
+- Langue du document (format ISO 639-1)
+- Nombre de pages
+- URL du document
+- Source des données (moissonnage JHR, Proquest ou BAC-LAC)
+   
+Codes de valeur manquante: "?" ou cellule vide.
+
+Format des données <texte, nombre, date, monnaie>, longueur de champ <nombre de caractère>, formats spécialisés, autres abréviations utilisées: Rien de particulier

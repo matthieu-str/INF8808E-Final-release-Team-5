@@ -23,5 +23,6 @@ def get_figure(data, colored, domaine):
     fig.update_xaxes(title_text="Number of publications")
     # Update the y-axis label using plotly graph object
     fig.update_yaxes(title_text="Discipline")
+    # Size of figure
     fig.update_layout(height=900, width=900)
     return fig

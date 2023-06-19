@@ -14,6 +14,9 @@ import template
 from template import external_css
 import stacked_bar
 
+from radar_chart import init_figure, update_graph
+
+
 # Load the dataset
 df = pd.read_csv("assets/data/thesesMemoiresQC2000-2022-v20230508-1.csv", na_values="?")
 df = preproc.to_lowercase(df)
@@ -173,13 +176,35 @@ def render_page_content(pathname):
             ])
         ])
     elif pathname == "/radar":
-        return html.Div(
-            className="radar-content",
+        return html.Div(className="Rader-content", children=[ dcc.Tabs(
+            id="radar-tabs",
+            value="tab-univ",
             children=[
-                html.H1("Radar Chart Coming Soon ..."),
-                # Add your content for the Radar Chart page here
+                dcc.Tab(
+                    label="Universities",
+                    value="tab-univ",
+                    children=[
+                        dcc.Graph(
+                            id='radar-graph-univ',
+                            figure=init_figure()
+                        ),
+                        html.Button('Update', id='button')  # Added button
+                    ],
+                ),
+                dcc.Tab(
+                    label="Top 10 discipline",
+                    value="tab-discipline",
+                    children=[
+                        dcc.Graph(
+                            id='radar-graph-discipline',
+                            figure=update_graph('discipline')
+                        ),
+                    ],
+                ),
             ],
-        )
+        ),
+    ])
+    
     elif pathname == "/sunburst":
         return html.Div(
             className="sunburst-content",
@@ -451,6 +476,19 @@ def update_stacked_bar(n_clicks, checkbox1_value, checkbox2_value):
         return figure
     else:
         default_figure = stacked_bar.get_figure(df, 'univ', 'sciences humaines')
+        return default_figure
+# Radar chart    
+@app.callback(
+    Output('radar-graph-univ', 'figure'),  # Change id to 'radar-graph-univ'
+    [Input('button', 'n_clicks')],
+    [State('dropdown-univ-discipline', 'value')]
+)
+def update_radar_chart(n_clicks, dropdown_univ_discipline_value):
+    if n_clicks is not None:
+        figure = update_graph(dropdown_univ_discipline_value)
+        return figure
+    else:
+        default_figure = init_figure()
         return default_figure
 
 

@@ -141,12 +141,32 @@ def render_page_content(pathname):
         )
     elif pathname == "/stacked-area":
         return html.Div(
-            className="stacked-area-content",
-            children=[
-                html.H1("Stacked Area Chart Coming Soon ..."),
-                # Add your content for the Stacked Area Chart page here
-            ],
-        )
+            className="stacked-area-content", children=[
+                html.Header(children=[
+                    dcc.Checklist(
+                        id='stacked-area-checkbox-1',
+                        options=[
+                            {'label': 'Universités', 'value': 'university'},
+                            {'label': 'Domaines', 'value': 'domains'},
+                            {'label': 'Langues', 'value': 'languages'},
+                            {'label': "Niveau d'études", 'value': 'grade'}
+                        ],
+                        value=['Universités'] # initial value for stacked-area-checkbox-1
+                    ),
+                    dcc.Checklist(
+                        id='stacked-area-checkbox-2',
+                        options=[
+                            {'label': 'Compte', 'value': 'count'},
+                            {'label': 'Pourcentage', 'value': 'percentage'},
+                        ],
+                        value=['Compte']  # initial value for stacked-area-checkbox-2
+                    ),
+                    html.Button('Press here', id="button")
+                ]),
+                html.Main(className='viz-container', children=[
+                    dcc.Graph(id='stacked_area_chart', className='graph')
+                ])
+            ])
     elif pathname == "/stacked-bar":
         return html.Div(className="stacked-bar-content", children=[
             html.Header(children=[

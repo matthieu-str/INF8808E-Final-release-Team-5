@@ -17,7 +17,7 @@ def get_figure(data, colored, domaine):
     df_grouped = df_grouped.sort_values('total', ascending=True)
 
     # Create the stacked bar chart using Plotly Express
-    fig = px.bar(df_grouped, y='discipline', x=list(data[colored].unique()), title='Degrees by Discipline',orientation='h',
+    fig = px.bar(df_grouped, y='discipline', x=list(data[colored].unique()), title='Visualisation of the distribution of different variables for various disciplines',orientation='h',
              barmode='stack')
     fig.update_layout(height=900, width=900)
     return fig

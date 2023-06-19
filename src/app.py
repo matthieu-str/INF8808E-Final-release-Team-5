@@ -148,8 +148,8 @@ def render_page_content(pathname):
                         id='stacked-area-checkbox-1',
                         options=[
                             {'label': 'Universités', 'value': 'univ'},
-                            {'label': 'Domaines', 'value': 'domains'},
-                            {'label': 'Langues', 'value': 'languages'},
+                            {'label': 'Domaines', 'value': 'domaine'},
+                            {'label': 'Langues', 'value': 'langue'},
                             {'label': "Niveau d'études", 'value': 'grade'}
                         ],
                         value=['univ'] # initial value for stacked-area-checkbox-1
@@ -494,7 +494,7 @@ def update_stacked_area_chart(n_clicks, checkbox1_value, checkbox2_value):
     if n_clicks is not None:
         print(f"Checkbox 1 value: {checkbox1_value[0]}")
         print(f"Checkbox 2 value: {checkbox2_value[0]}")
-        figure = stacked_area_chart.get_figure(df, checkbox2_value[0], checkbox1_value[0])
+        figure = stacked_area_chart.get_figure(df, checkbox1_value[0], checkbox2_value[0])
         return figure
     else:
         default_figure = stacked_area_chart.get_figure(df, 'univ', 'count')

@@ -3,7 +3,7 @@ import numpy as np
 import plotly.graph_objs as go
 from hover_template import get_hover_univ, get_hover_discipline
 
-df = pd.read_csv('thesesMemoiresQC2000-2022-v20230508-1.csv')
+df = pd.read_csv('assets/data/thesesMemoiresQC2000-2022-v20230508-1.csv')
 
 def update_graph(mode):
     x = "maîtrise"

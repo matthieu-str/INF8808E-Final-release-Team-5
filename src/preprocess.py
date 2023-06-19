@@ -1,3 +1,4 @@
+import pandas as pd
 def to_lowercase(df):
     # putting every str column in lowercase
     str_columns = ["nom", "prénom", "titre", "discipline", "domaine", "langue", "grade"]
@@ -45,3 +46,30 @@ def delete_duplicate_disciplines(df):
             discipline_domains[discipline] = domaine
 
     return df
+
+def other_languages(df_count, year_min, year_max):
+    '''
+    This function is gathering all the other languages than English and French into an "other" category
+    :param df_count: input dataframe grouped by languages
+    :param year_min: minimum year for gathering
+    :param year_max: maximum year for gathering
+    :return: processed dataframe
+    '''
+    langues_other = ["de", "es", "it", "pt"]
+    pattern_langues_other = '|'.join(langues_other)
+    res = []
+
+    for year in range(year_min, year_max + 1):
+        total_other = df_count[(df_count["année"] == year) & (
+            df_count["langue"].str.contains(pattern_langues_other))]["count"].sum()
+        res.append([year, "other", total_other])
+
+    df_other = pd.DataFrame(res, columns=["année", "langue", "count"])
+
+    df_count = df_count.drop(
+        df_count[df_count.langue.str.contains(pattern_langues_other)].index)
+    df_count = pd.concat([df_count, df_other])
+
+    df_count.sort_values(by=["année"], ignore_index=True, inplace=True)
+
+    return df_count

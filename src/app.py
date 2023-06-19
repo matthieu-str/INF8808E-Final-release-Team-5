@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 
 import preprocess as preproc
 import figs_viz
@@ -12,6 +12,7 @@ import helper
 import callback
 import template
 from template import external_css
+import stacked_bar
 
 # Load the dataset
 df = pd.read_csv("assets/data/thesesMemoiresQC2000-2022-v20230508-1.csv", na_values="?")

@@ -19,5 +19,9 @@ def get_figure(data, colored, domaine):
     # Create the stacked bar chart using Plotly Express
     fig = px.bar(df_grouped, y='discipline', x=list(data[colored].unique()), title='Visualisation of the distribution of different variables for various disciplines',orientation='h',
              barmode='stack')
+    # Update the x-axis label using plotly graph object
+    fig.update_xaxes(title_text="Number of publications")
+    # Update the y-axis label using plotly graph object
+    fig.update_yaxes(title_text="Discipline")
     fig.update_layout(height=900, width=900)
     return fig

@@ -13,6 +13,7 @@ import callback
 import template
 from template import external_css
 import stacked_bar
+import stacked_area_chart
 
 from radar_chart import init_figure, update_graph
 
@@ -146,12 +147,12 @@ def render_page_content(pathname):
                     dcc.Checklist(
                         id='stacked-area-checkbox-1',
                         options=[
-                            {'label': 'Universités', 'value': 'university'},
+                            {'label': 'Universités', 'value': 'univ'},
                             {'label': 'Domaines', 'value': 'domains'},
                             {'label': 'Langues', 'value': 'languages'},
                             {'label': "Niveau d'études", 'value': 'grade'}
                         ],
-                        value=['Universités'] # initial value for stacked-area-checkbox-1
+                        value=['univ'] # initial value for stacked-area-checkbox-1
                     ),
                     dcc.Checklist(
                         id='stacked-area-checkbox-2',
@@ -159,7 +160,7 @@ def render_page_content(pathname):
                             {'label': 'Compte', 'value': 'count'},
                             {'label': 'Pourcentage', 'value': 'percentage'},
                         ],
-                        value=['Compte']  # initial value for stacked-area-checkbox-2
+                        value=['count']  # initial value for stacked-area-checkbox-2
                     ),
                     html.Button('Press here', id="button")
                 ]),
@@ -481,6 +482,23 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
     )
 
     return dcc.Graph(figure=fig)
+
+# Stacked area chart
+@app.callback(
+    Output('stacked_area_chart', 'figure'),
+    [Input('button', 'n_clicks')],
+    [State('stacked-area-checkbox-1', 'value'),
+     State('stacked-area-checkbox-2', 'value')]
+)
+def update_stacked_area_chart(n_clicks, checkbox1_value, checkbox2_value):
+    if n_clicks is not None:
+        print(f"Checkbox 1 value: {checkbox1_value[0]}")
+        print(f"Checkbox 2 value: {checkbox2_value[0]}")
+        figure = stacked_area_chart.get_figure(df, checkbox2_value[0], checkbox1_value[0])
+        return figure
+    else:
+        default_figure = stacked_area_chart.get_figure(df, 'univ', 'count')
+        return default_figure
 
 @app.callback(
     Output('stacked_bar', 'figure'),

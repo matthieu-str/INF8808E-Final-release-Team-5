@@ -128,7 +128,7 @@ def render_page_content(pathname):
         return html.Div(
             className="home-content",
             children=[
-                # html.H1("Welcome to the Home Page"),
+                html.H1("Welcome to the Home Page. More is Coming Soon ..."),
                 # We will add the content for the Home page here
             ],
         )
@@ -136,7 +136,7 @@ def render_page_content(pathname):
         return html.Div(
             className="stacked-area-content",
             children=[
-                # html.H1("Stacked Area Chart"),
+                html.H1("Stacked Area Chart Coming Soon ..."),
                 # Add your content for the Stacked Area Chart page here
             ],
         )
@@ -144,7 +144,7 @@ def render_page_content(pathname):
         return html.Div(
             className="stacked-bar-content",
             children=[
-                # html.H1("Stacked Bar Chart"),
+                html.H1("Stacked Bar Chart Coming Soon ..."),
                 # Add your content for the Stacked Bar Chart page here
             ],
         )
@@ -152,7 +152,7 @@ def render_page_content(pathname):
         return html.Div(
             className="radar-content",
             children=[
-                # html.H1("Radar Chart"),
+                html.H1("Radar Chart Coming Soon ..."),
                 # Add your content for the Radar Chart page here
             ],
         )
@@ -160,7 +160,7 @@ def render_page_content(pathname):
         return html.Div(
             className="sunburst-content",
             children=[
-                # html.H1("Sunburst Chart"),
+                html.H1("Sunburst Chart Coming Soon ..."),
                 # Add your content for the Sunburst Chart page here
             ],
         )
@@ -168,7 +168,7 @@ def render_page_content(pathname):
         return html.Div(
             className="back-to-back-bar-content",
             children=[
-                # html.H1("Back to Back Bar Chart"),
+                html.H1("Back to Back Bar Chart Coming Soon ..."),
                 # Add your content for the Back to Back Bar Chart page here
             ],
         )
@@ -412,5 +412,3 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
     )
 
     return dcc.Graph(figure=fig)
-
-

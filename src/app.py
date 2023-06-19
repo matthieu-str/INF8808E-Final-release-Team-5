@@ -144,13 +144,33 @@ def render_page_content(pathname):
             ],
         )
     elif pathname == "/stacked-bar":
-        return html.Div(
-            className="stacked-bar-content",
-            children=[
-                html.H1("Stacked Bar Chart Coming Soon ..."),
-                # Add your content for the Stacked Bar Chart page here
-            ],
-        )
+        return html.Div(className="stacked-bar-content", children=[
+            html.Header(children=[
+                dcc.Checklist(
+                    id='checkbox-1',
+                    options=[
+                        {'label': 'Sciences Humaines', 'value': 'sciences humaines'},
+                        {'label': 'Sciences Naturelles', 'value': 'sciences naturelles'},
+                        {'label': 'Inclassable', 'value': 'inclassable'}
+                    ],
+                    value=['sciences humaines']  # Set initial value for checkbox-1
+                ),
+                dcc.Checklist(
+                    id='checkbox-2',
+                    options=[
+                        {'label': 'Grade', 'value': 'grade'},
+                        {'label': 'University', 'value': 'univ'},
+                        {'label': 'Language', 'value': 'langue'},
+                        {'label': 'Pages', 'value': 'range of pages'}
+                    ],
+                    value=['univ']  # Set initial value for checkbox-2
+                ),
+                html.Button('Press here', id="button")
+            ]),
+            html.Main(className='viz-container', children=[
+                dcc.Graph(id='stacked_bar', className='graph')
+            ])
+        ])
     elif pathname == "/radar":
         return html.Div(
             className="radar-content",
@@ -415,3 +435,21 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
     )
 
     return dcc.Graph(figure=fig)
+
+@app.callback(
+    Output('stacked_bar', 'figure'),
+    [Input('button', 'n_clicks')],
+    [State('checkbox-1', 'value'),
+     State('checkbox-2', 'value')]
+)
+def update_stacked_bar(n_clicks, checkbox1_value, checkbox2_value):
+    if n_clicks is not None:
+        print(f"Checkbox 1 value: {checkbox1_value[0]}")
+        print(f"Checkbox 2 value: {checkbox2_value[0]}")
+        figure = stacked_bar.get_figure(df, checkbox2_value[0], checkbox1_value[0])
+        return figure
+    else:
+        default_figure = stacked_bar.get_figure(df, 'univ', 'sciences humaines')
+        return default_figure
+
+

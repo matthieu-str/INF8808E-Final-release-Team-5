@@ -31,8 +31,8 @@ def delete_duplicate_disciplines(df):
     idx2= df.columns.get_loc('domaine')
     # Iterate over each row in the table
     for index, row in df.iterrows():
-        discipline = row[idx1]  # Assuming discipline is in the second column (index 1)
-        domaine = row[idx2]  # Assuming domaine is in the third column (index 2)
+        discipline = row[idx1]  # Assuming discipline is in the column (index 1)
+        domaine = row[idx2]  # Assuming domaine is in the column (index 2)
 
         # Check if the discipline already exists in the dictionary
         if discipline in discipline_domains:

@@ -37,12 +37,12 @@
   
 
 
-/* Tabs */
+
 .tabs {
   margin-bottom: 20px; 
 }
 
-/* Tab headers */
+
 .tab-header {
   display: flex;
   justify-content: center;
@@ -63,7 +63,7 @@
   background-color: #ffffff;
 }
 
-/* Tab content */
+
 .tab-content {
   padding: 20px;
   background-color: #ffffff;

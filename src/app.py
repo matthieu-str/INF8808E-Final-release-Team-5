@@ -16,6 +16,9 @@ from template import external_css
 # Load the dataset
 df = pd.read_csv("assets/data/thesesMemoiresQC2000-2022-v20230508-1.csv", na_values="?")
 df = preproc.to_lowercase(df)
+df = preproc.assign_and_range_pages(df)
+df = preproc.delete_unecessary_columns(df)
+df = preproc.delete_duplicate_disciplines(df)
 
 # Create the Dash app
 app = dash.Dash(__name__)

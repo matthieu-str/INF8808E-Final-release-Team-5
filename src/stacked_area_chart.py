@@ -2,6 +2,11 @@ import plotly.express as px
 import pandas as pd
 from preprocess import other_languages, other_univ, rename_languages
 
+# TODO
+# Change colors
+# Change background
+# Text box top 5 disciplines for domains
+
 def get_figure(df, y_axis, mode):
 
     titles = {'univ': 'Université',

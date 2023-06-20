@@ -209,7 +209,6 @@ def render_page_content(pathname):
                             id='radar-graph-univ',
                             figure=init_figure()
                         ),
-                        html.Button('Update', id='button')  # Added button
                     ],
                 ),
                 dcc.Tab(

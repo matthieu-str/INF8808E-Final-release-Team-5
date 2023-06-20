@@ -5,6 +5,9 @@ def get_figure(data, colored, domaine):
     data = data[data['domaine'] == domaine]
     if colored == 'range of pages':
         data = data[data['range of pages'] != '0']
+    if colored == 'univ':
+        top_10_univ=list(df.groupby(['univ']).size().reset_index(name='counts').sort_values(by='counts', ascending=False)['univ'].head(10))
+        data = data[data['univ'] isin  '0']
     df_grouped = data.groupby(['discipline', colored]).size().unstack().fillna(0)
 
     # Reset the index to have 'discipline' as a column

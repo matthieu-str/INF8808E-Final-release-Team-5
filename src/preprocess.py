@@ -74,13 +74,14 @@ def other_languages(df_count):
 
     return df_count
 
-def get_top10_univ(df_count):
+def get_top_univ(df_count, n):
     '''
     Returns a list of the top 10 universities un terms of cumulated number of publications
     :param df_count: grouped by dataframe
+    :param n: number of top to keep
     :return: list of str containing top 10 university names
     '''
-    return list(df_count.groupby(by=['univ'], as_index=False).sum('count')[['univ', 'count']].sort_values(by='count', ascending=False).head(10)['univ'])
+    return list(df_count.groupby(by=['univ'], as_index=False).sum('count')[['univ', 'count']].sort_values(by='count', ascending=False).head(n)['univ'])
 
 def other_univ(df_count):
     '''
@@ -88,9 +89,9 @@ def other_univ(df_count):
     :param df_count: the grouped by dataframe
     :return: the processed dataframe
     '''
-    top_10_univ = get_top10_univ(df_count)
-    not_top_10_univ = list(set(list(df_count.univ.unique())) - set(top_10_univ))
-    pattern_univ_other = '|'.join(not_top_10_univ)
+    top_univ = get_top_univ(df_count, 5)
+    not_top_univ = list(set(list(df_count.univ.unique())) - set(top_univ))
+    pattern_univ_other = '|'.join(not_top_univ)
     res = []
     year_min = df_count["année"].min()
     year_max = df_count["année"].max()
@@ -118,4 +119,10 @@ def rename_languages(df_count):
     '''
     df_count.langue.replace(to_replace='fr', value='français', inplace=True)
     df_count.langue.replace(to_replace='en', value='anglais', inplace=True)
+    return df_count
+
+def rename_inclassable(df_count):
+    df_count.domaine.replace(to_replace='inclassable',
+                             value='programme individualisé ou inconnu',
+                             inplace=True)
     return df_count

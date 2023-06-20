@@ -1,6 +1,6 @@
 import plotly.express as px
 import pandas as pd
-from preprocess import other_languages, other_univ, rename_languages
+from preprocess import other_languages, other_univ, rename_languages, rename_inclassable
 
 # TODO
 # Change colors
@@ -21,6 +21,9 @@ def get_figure(df, y_axis, mode):
 
     if y_axis == 'univ':
         df_count = other_univ(df_count)
+
+    if y_axis == 'domaine':
+        df_count = rename_inclassable(df_count)
 
     if y_axis == 'langue':
         df_count = other_languages(df_count)

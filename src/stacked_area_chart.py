@@ -40,11 +40,19 @@ def get_figure(df, y_axis, mode):
                   labels={f'{y_axis}': f'{titles[y_axis]}', f'{mode}': f'{titles[mode]}', 'année': 'Année'})
 
     fig.update_layout(height=600, width=1200)
-    fig.update_xaxes(title_text="Année")
+    fig.update_xaxes(title_text="Année", title_font=dict(size=20))
     if mode == 'count':
-        fig.update_yaxes(title_text='Nombre de publications')
+        fig.update_yaxes(title_text='')
+        fig.update_layout(title=dict(text='Nombre de publications',
+                                     xanchor='left',
+                                     yanchor='top',
+                                     font=dict(size=20)))
     elif mode == 'percentage':
-        fig.update_yaxes(title_text='Pourcentage de publications [%]',
+        fig.update_yaxes(title_text='',
                          range=[0,100])
+        fig.update_layout(title=dict(text='Pourcentage de publications [%]',
+                                     xanchor='left',
+                                     yanchor='top',
+                                     font=dict(size=20)))
 
     return fig

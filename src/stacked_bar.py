@@ -1,5 +1,6 @@
 from preprocess import rename_languages
 from hover_template import get_hover_stacked_bar_chart
+import plotly.express as px
 
 def get_figure(data, colored, domaine):
     data = data[data['domaine'] == domaine]

@@ -1,4 +1,5 @@
 from preprocess import rename_languages
+from hover_template import get_hover_stacked_bar_chart
 
 def get_figure(data, colored, domaine):
     data = data[data['domaine'] == domaine]
@@ -26,6 +27,7 @@ def get_figure(data, colored, domaine):
     fig = px.bar(df_grouped, y='discipline', x=list(data[colored].unique()), 
             title='Visualisation of the distribution of different variables for various disciplines', orientation='h',
              barmode='stack')
+    fig.update_traces(hovertemplate=get_hover_stacked_bar_chart())
     # Update the x-axis label using plotly graph object
     fig.update_xaxes(title_text="Number of publications")
     # Update the y-axis label using plotly graph object

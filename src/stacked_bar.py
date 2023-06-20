@@ -1,4 +1,3 @@
-import plotly.express as px
 from preprocess import rename_languages
 
 def get_figure(data, colored, domaine):

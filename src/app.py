@@ -234,7 +234,7 @@ def render_page_content(pathname):
                 # Add your content for the Sunburst Chart page here
             ],
         )
-     elif pathname == "/back-to-back-bar":
+    elif pathname == "/back-to-back-bar":
         return html.Div(className="btb-content", children=[dcc.Tabs(
             id="btb-tabs",
             value="tab-master",

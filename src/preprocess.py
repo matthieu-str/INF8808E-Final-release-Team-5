@@ -126,3 +126,4 @@ def rename_inclassable(df_count):
                              value='programme individualisé ou inconnu',
                              inplace=True)
     return df_count
+

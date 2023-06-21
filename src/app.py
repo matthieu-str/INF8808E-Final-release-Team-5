@@ -15,7 +15,7 @@ from template import external_css
 import stacked_bar
 import stacked_area_chart
 from back_to_back_bar import back_to_back, distribution_language
-
+from sunburstchart import sunburst
 from radar_chart import init_figure, update_graph
 
 
@@ -225,13 +225,33 @@ def render_page_content(pathname):
             ],
         ),
     ])
-    
     elif pathname == "/sunburst":
         return html.Div(
             className="sunburst-content",
-            children=[
-                html.H1("Sunburst Chart Coming Soon ..."),
-                # Add your content for the Sunburst Chart page here
+            children=[dcc.Tabs(
+                id="sunburst-tabs",
+                value="sunburst=master",
+                children=[
+                    dcc.Tab(
+                        label='Langues',
+                        children=[
+                            dcc.Graph(
+                                id="sunburst-langue",
+                                figure=update_sunburst_chart('langue')
+                            )
+                        ],
+                    ),
+                    dcc.Tab(
+                        label='Universities',
+                        children=[
+                            dcc.Graph(
+                                id="sunburst-univ",
+                                figure=update_sunburst_chart('univ')
+                            )
+                        ],
+                    ),
+                ],
+            ),
             ],
         )
     elif pathname == "/back-to-back-bar":
@@ -502,6 +522,16 @@ def update_stacked_area_chart(n_clicks, checkbox1_value, checkbox2_value):
         default_figure = stacked_area_chart.get_figure(df, 'univ', 'count')
         return default_figure
 
+# Sunburst chart
+@app.callback(
+    Output('sunburstchart', 'figure'),
+    [Input('button', 'n_clicks')],
+    [State('langue-univ-value', 'value')]
+)
+def update_sunburst_chart(langue_univ_value):
+    figure = sunburst(df, langue_univ_value)
+    return figure
+
 @app.callback(
     Output('stacked_bar', 'figure'),
     [Input('button', 'n_clicks')],
@@ -517,6 +547,7 @@ def update_stacked_bar(n_clicks, checkbox1_value, checkbox2_value):
     else:
         default_figure = stacked_bar.get_figure(df, 'univ', 'sciences humaines')
         return default_figure
+
 # Radar chart    
 @app.callback(
     Output('radar-graph-univ', 'figure'),  # Change id to 'radar-graph-univ'

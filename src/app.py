@@ -7,7 +7,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output, State
 
 import preprocess as preproc
-import figs_viz
+import box_plot
 import helper
 import callback
 import template
@@ -360,13 +360,7 @@ def update_overview_content(dropdown_value, radio_value):
         elif radio_value == "others":
             filtered_df = filtered_df[df["langue"].isin(["es", "it", "de", "pt"])]
 
-    fig = px.box(filtered_df, x="année", y="pages")
-    fig.update_layout(
-        title="Box Plot of Number of Pages by Year",
-        xaxis_title="Year",
-        yaxis_title="Number of Pages",
-        showlegend=True,
-    )
+    fig = box_plot.overview_box_plot(filtered_df)
 
     return dcc.Graph(figure=fig)
 
@@ -456,29 +450,7 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
                 df["langue"].isin(["es", "it", "de", "pt"])
             ]
 
-    fig = go.Figure()
-    fig.add_trace(
-        go.Box(
-            x=filtered_df_maitrise["année"],
-            y=filtered_df_maitrise["pages"],
-            name="Maîtrise",
-        )
-    )
-    fig.add_trace(
-        go.Box(
-            x=filtered_df_doctorat["année"],
-            y=filtered_df_doctorat["pages"],
-            name="Doctorat",
-        )
-    )
-
-    fig.update_layout(
-        title="Comparison of Number of Pages by Year for Maîtrise and Doctorat",
-        xaxis_title="Year",
-        yaxis_title="Number of Pages",
-        boxmode="group",
-        showlegend=True,
-    )
+    fig = box_plot.mvd_box_plot(filtered_df_maitrise, filtered_df_doctorat)
 
     return dcc.Graph(figure=fig)
 

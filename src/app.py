@@ -14,6 +14,7 @@ import template
 from template import external_css
 import stacked_bar
 import stacked_area_chart
+from back_to_back_bar import back_to_back, distribution_language
 
 from radar_chart import init_figure, update_graph
 

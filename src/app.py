@@ -230,10 +230,11 @@ def render_page_content(pathname):
             className="sunburst-content",
             children=[dcc.Tabs(
                 id="sunburst-tabs",
-                value="sunburst=master",
+                value="tab1",
                 children=[
                     dcc.Tab(
                         label='Langues',
+                        value='tab1',
                         children=[
                             dcc.Graph(
                                 id="sunburst-langue",
@@ -243,6 +244,7 @@ def render_page_content(pathname):
                     ),
                     dcc.Tab(
                         label='Universités',
+                        value='tab2',
                         children=[
                             dcc.Graph(
                                 id="sunburst-univ",

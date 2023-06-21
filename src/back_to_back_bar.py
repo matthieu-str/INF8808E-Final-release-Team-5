@@ -46,7 +46,7 @@ def distribution_language(df,grade,doc):
     barmode='relative',
     title='Distribution of English And French for ' + doc,
     xaxis=dict(
-        title='Population',
+        title='',
         tickvals= tick_values,
         ticktext=[abs(val) for val in tick_values]
     ),

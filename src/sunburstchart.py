@@ -4,6 +4,8 @@ from hover_template import get_hover_sunburst_chart_langue, get_hover_sunburst_c
 
 def sunburst(df, mode):
     df['langue_new'] = df['langue'].str.lower().map({'fr': 'fr', 'en': 'en'}).fillna('the others')
+    language_map = {"fr": "French", "en": "English", "the others": "the others"}
+    df['langue_new'] = df['langue_new'].map(language_map)
     df_domain_languages = df.groupby(["domaine", "langue_new"], as_index=False).count()[
         ["domaine", "langue_new", "pages"]]
     df_domain_languages.rename(columns={"pages": "count"}, inplace=True)

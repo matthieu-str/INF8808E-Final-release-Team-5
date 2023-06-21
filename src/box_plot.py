@@ -1,5 +1,7 @@
 import plotly.express as px
 import plotly.graph_objects as go
+from hover_template import get_hover_box_plot
+
 
 def overview_box_plot(filtered_df):
     fig = px.box(filtered_df, x="année", y="pages")
@@ -8,6 +10,8 @@ def overview_box_plot(filtered_df):
         xaxis_title="Year",
         yaxis_title="Number of Pages",
         showlegend=True)
+    fig.update_traces(
+        hovertemplate=get_hover_box_plot())
     return fig
 
 def mvd_box_plot(filtered_df_maitrise, filtered_df_doctorat):
@@ -16,12 +20,16 @@ def mvd_box_plot(filtered_df_maitrise, filtered_df_doctorat):
         go.Box(
             x=filtered_df_maitrise["année"],
             y=filtered_df_maitrise["pages"],
-            name="Maîtrise"))
+            name="Maîtrise",
+            hovertemplate=get_hover_box_plot()),
+        )
     fig.add_trace(
         go.Box(
             x=filtered_df_doctorat["année"],
             y=filtered_df_doctorat["pages"],
-            name="Doctorat"))
+            name="Doctorat",  
+            hovertemplate=get_hover_box_plot()),
+        )
 
     fig.update_layout(
         title="Comparison of Number of Pages by Year for Maîtrise and Doctorat",

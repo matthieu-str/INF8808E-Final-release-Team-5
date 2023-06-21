@@ -12,3 +12,6 @@ def get_hover_discipline():
 def get_hover_stacked_bar_chart(): 
     hover_temp = 'Number of publications: %{x}<br>Discipline: %{y}'
     return hover_temp
+
+def get_hover_box_plot():
+    return "Year: %{x}<br>Number of Pages: %{y}<extra></extra>"

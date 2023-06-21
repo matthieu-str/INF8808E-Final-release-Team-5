@@ -278,7 +278,7 @@ def render_page_content(pathname):
                                     id="dropdown-value",
                                     options=[
                                         {"label": "Domaine", "value": "domaine"},
-                                        {"label": "Langue", "value": "langue"},
+                                        {"label": "Language", "value": "langue"},
                                     ],
                                     value="domaine",
                                     className="dropdown",
@@ -295,7 +295,7 @@ def render_page_content(pathname):
                                     id="dropdown-value-maitrise-doctorat",
                                     options=[
                                         {"label": "Domaine", "value": "domaine"},
-                                        {"label": "Langue", "value": "langue"},
+                                        {"label": "Language", "value": "langue"},
                                     ],
                                     value="domaine",
                                     className="dropdown",
@@ -455,6 +455,7 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
             if radio_value == "inclassable":
                 context_title = " in other and personalized domaines"
     elif dropdown_value == "langue":
+        context_title = " written in all languages"
         if radio_value == "fr":
             filtered_df_maitrise = filtered_df_maitrise[
                 filtered_df_maitrise["langue"] == "fr"

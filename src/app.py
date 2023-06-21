@@ -242,7 +242,7 @@ def render_page_content(pathname):
                         ],
                     ),
                     dcc.Tab(
-                        label='Universities',
+                        label='Universités',
                         children=[
                             dcc.Graph(
                                 id="sunburst-univ",

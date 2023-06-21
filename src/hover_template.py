@@ -17,3 +17,10 @@ def get_hover_box_plot(name_text=None):
     if name_text is None: 
         return "Year: %{x}<br>Number of Pages: %{y}<extra></extra>"
     return "Year: %{x}<br>Number of Pages: %{y}<br>Grade: "+ name_text + "<extra></extra>"
+
+def get_hover_sunburst_chart_langue():
+    hover_temp = "<b>Domaines:</b> %{parent}<br><b>Langues:</b> %{customdata[0]}<br><b>Count:</b> %{value}<extra></extra>"
+    return hover_temp
+def get_hover_sunburst_chart_univ():
+    hover_temp = "<b>Domaines:</b> %{parent}<br><b>Universités:</b> %{customdata[0]}<br><b>Count:</b> %{value}<extra></extra>"
+    return hover_temp

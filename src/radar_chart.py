@@ -57,8 +57,6 @@ def update_graph(mode):
             ]
         )
 
-        # Other parts of your function...
-
     else:
         x_freq = df[df["grade"] == x].groupby('discipline').size()
         y_freq = df[df["grade"] == y].groupby('discipline').size()

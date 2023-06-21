@@ -13,8 +13,8 @@ def distribution_language(df,grade,doc):
   s= list(map(add, en_pop, fr_pop))
   freq_en = [round((int(b)*100 / int(m)),2) for b,m in zip(en_pop, s)]
   freq_fr = [round((int(b)*100 / int(m)),2) for b,m in zip(fr_pop, s)]
-  start_value = - max(fr+en)
-  end_value = max(en+fr)
+  start_value = - max(fr_pop+en_pop)
+  end_value = max(en_pop+fr_pop)
   num_ticks = 11-1 # Subtract 1 to account for 0 as one of the values
   tick_values = []
   tick_range = end_value - start_value

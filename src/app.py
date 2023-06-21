@@ -75,7 +75,7 @@ navbar = html.Nav(
                             id="navlink-back-to-back-bar",
                         ),
                         dcc.Link(
-                            html.Span("Box Plots", title="Click to display the Box Plots"),
+                            html.Span("Box Plot", title="Click to display the Box Plots"),
                             href="/box-plots",
                             className="navlink",
                             id="navlink-box-plots",

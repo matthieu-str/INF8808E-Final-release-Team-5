@@ -11,7 +11,8 @@ def overview_box_plot(filtered_df):
         yaxis_title="Number of Pages",
         showlegend=True)
     fig.update_traces(
-        hovertemplate=get_hover_box_plot())
+        hovertemplate=get_hover_box_plot(),
+        marker=dict(color='black'))
     return fig
 
 def mvd_box_plot(filtered_df_maitrise, filtered_df_doctorat):

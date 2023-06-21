@@ -234,13 +234,33 @@ def render_page_content(pathname):
             ],
         )
     elif pathname == "/back-to-back-bar":
-        return html.Div(
-            className="back-to-back-bar-content",
+        return html.Div(className="back-to-back-bar-content", children=[ dcc.Tabs(
+            id="btb-tabs",
+            value="tab-grade",
             children=[
-                html.H1("Back to Back Bar Chart Coming Soon ..."),
-                # Add your content for the Back to Back Bar Chart page here
+                dcc.Tab(
+                    label="Grade",
+                    value="tab-grade",
+                    children=[
+                        dcc.Graph(
+                            id='back-to-back',
+                            figure=init_figure()
+                        ),
+                    ],
+                ),
+                dcc.Tab(
+                    label="Distribution of English and French",
+                    value="tab-grade",
+                    children=[
+                        dcc.Graph(
+                            id='btb-grade',
+                            figure=update_graph('grade')
+                        ),
+                    ],
+                ),
             ],
-        )
+        ),
+    ])
     elif pathname == "/box-plots":
         return html.Div(
             className="box-plots-content",
@@ -499,5 +519,7 @@ def update_radar_chart(n_clicks, dropdown_univ_discipline_value):
     else:
         default_figure = init_figure()
         return default_figure
+# back to back chart    
+        
 
 

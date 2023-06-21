@@ -233,34 +233,34 @@ def render_page_content(pathname):
                 # Add your content for the Sunburst Chart page here
             ],
         )
-    elif pathname == "/back-to-back-bar":
-        return html.Div(className="back-to-back-bar-content", children=[ dcc.Tabs(
+     elif pathname == "/back-to-back-bar":
+        return html.Div(className="btb-content", children=[dcc.Tabs(
             id="btb-tabs",
-            value="tab-grade",
+            value="tab-master",
             children=[
                 dcc.Tab(
-                    label="Grade",
-                    value="tab-grade",
+                    label="Distribution of English and French for Dissertation",
+                    value="tab-master",
                     children=[
                         dcc.Graph(
-                            id='back-to-back',
-                            figure=init_figure()
+                            id='btb-graph-master',
+                            figure=back_to_back(df,'maîtrise')
                         ),
                     ],
                 ),
                 dcc.Tab(
-                    label="Distribution of English and French",
-                    value="tab-grade",
+                    label="Distribution of English and French for Thesis",
+                    value="tab-phd",
                     children=[
                         dcc.Graph(
-                            id='btb-grade',
-                            figure=update_graph('grade')
+                            id='btb-graph-phd',
+                            figure= back_to_back(df, 'doctorat')
                         ),
                     ],
                 ),
             ],
         ),
-    ])
+        ])
     elif pathname == "/box-plots":
         return html.Div(
             className="box-plots-content",

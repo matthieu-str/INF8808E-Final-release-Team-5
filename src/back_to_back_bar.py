@@ -55,3 +55,13 @@ def distribution_language(df,grade,doc):
     )
 )
   return fig
+
+def back_to_back(df,grade):
+  if (grade == 'doctorat'):
+    fig = distribution_language(df,'doctorat', 'Thesis')
+  else:
+    fig = distribution_language(df,'maîtrise', 'Dissertation')
+  return fig  
+    
+
+

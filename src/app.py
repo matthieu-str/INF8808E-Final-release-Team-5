@@ -7,7 +7,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output, State
 
 import preprocess as preproc
-import box_plot
+from box_plot import overview_box_plot, mvd_box_plot
 import helper
 import callback
 import template
@@ -380,7 +380,7 @@ def update_overview_content(dropdown_value, radio_value):
         elif radio_value == "others":
             filtered_df = filtered_df[df["langue"].isin(["es", "it", "de", "pt"])]
 
-    fig = box_plot.overview_box_plot(filtered_df)
+    fig = overview_box_plot(filtered_df)
 
     return dcc.Graph(figure=fig)
 
@@ -436,10 +436,13 @@ def update_radio_buttons_maitrise_doctorat(dropdown_value):
     Input("radio-value-maitrise-doctorat", "value"),
 )
 def update_maitrise_doctorat_content(dropdown_value, radio_value):
+    
+    context_title = ""
     filtered_df_maitrise = df[df['grade'] == 'maîtrise']
     filtered_df_doctorat = df[df['grade'] == 'doctorat']
 
     if dropdown_value == "domaine":
+        context_title = " in all domaines"
         if radio_value != "all":
             filtered_df_maitrise = filtered_df_maitrise[
                 filtered_df_maitrise["domaine"] == radio_value
@@ -447,6 +450,9 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
             filtered_df_doctorat = filtered_df_doctorat[
                 filtered_df_doctorat["domaine"] == radio_value
             ]
+            context_title = " in " + str(radio_value)
+            if radio_value == "inclassable":
+                context_title = " in other and personalized domaines"
     elif dropdown_value == "langue":
         if radio_value == "fr":
             filtered_df_maitrise = filtered_df_maitrise[
@@ -455,6 +461,7 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
             filtered_df_doctorat = filtered_df_doctorat[
                 filtered_df_doctorat["langue"] == "fr"
             ]
+            context_title = " written in French (en Français)"
         elif radio_value == "en":
             filtered_df_maitrise = filtered_df_maitrise[
                 filtered_df_maitrise["langue"] == "en"
@@ -462,6 +469,7 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
             filtered_df_doctorat = filtered_df_doctorat[
                 filtered_df_doctorat["langue"] == "en"
             ]
+            context_title = " written in English (en Anglais)"
         elif radio_value == "others":
             filtered_df_maitrise = filtered_df_maitrise[
                 df["langue"].isin(["es", "it", "de", "pt"])
@@ -469,8 +477,9 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
             filtered_df_doctorat = filtered_df_doctorat[
                 df["langue"].isin(["es", "it", "de", "pt"])
             ]
+            context_title = " written in other languages"
 
-    fig = box_plot.mvd_box_plot(filtered_df_maitrise, filtered_df_doctorat)
+    fig = mvd_box_plot(filtered_df_maitrise, filtered_df_doctorat, context_title)
 
     return dcc.Graph(figure=fig)
 

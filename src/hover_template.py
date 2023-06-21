@@ -13,5 +13,7 @@ def get_hover_stacked_bar_chart():
     hover_temp = 'Number of publications: %{x}<br>Discipline: %{y}'
     return hover_temp
 
-def get_hover_box_plot():
-    return "Year: %{x}<br>Number of Pages: %{y}<extra></extra>"
+def get_hover_box_plot(name_text=None):
+    if name_text is None: 
+        return "Year: %{x}<br>Number of Pages: %{y}<extra></extra>"
+    return "Year: %{x}<br>Number of Pages: %{y}<br>Grade: "+ name_text + "<extra></extra>"

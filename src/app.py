@@ -209,7 +209,7 @@ def render_page_content(pathname):
             value="tab-univ",
             children=[
                 dcc.Tab(
-                    label="Universities",
+                    label="Universités",
                     value="tab-univ",
                     children=[
                         dcc.Graph(
@@ -219,7 +219,7 @@ def render_page_content(pathname):
                     ],
                 ),
                 dcc.Tab(
-                    label="Top 10 disciplines",
+                    label="Les 10 disciplines les plus importantes",
                     value="tab-discipline",
                     children=[
                         dcc.Graph(

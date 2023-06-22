@@ -26,6 +26,19 @@ df = preproc.assign_and_range_pages(df)
 df = preproc.delete_unecessary_columns(df)
 df = preproc.delete_duplicate_disciplines(df)
 
+# Update labels of stacked bar chart
+stackedbar_default_options = [
+                        {'label': 'Sciences Humaines', 'value': 'sciences humaines'},
+                        {'label': 'Sciences Naturelles', 'value': 'sciences naturelles'},
+                        {'label': 'Programme individualisé ou inconnu', 'value': 'inclassable'}
+                    ]
+stacked_bar_down_options = [
+                        {'label': "Niveau d'études", 'value': 'grade'},
+                        {'label': 'Universités', 'value': 'univ'},
+                        {'label': 'Langues', 'value': 'langue'},
+                        {'label': 'Nombre de pages', 'value': 'range of pages'}
+                    ]
+
 # Create the Dash app
 app = dash.Dash(__name__)
 
@@ -172,26 +185,21 @@ def render_page_content(pathname):
     elif pathname == "/stacked-bar":
         return html.Div(className="stacked-bar-content", children=[
             html.Header(children=[
-                dcc.Checklist(
+                html.Div([ html.Label("Domaine: ", style=dict(fontWeight='bold')), 
+                dcc.RadioItems(
                     id='checkbox-1',
-                    options=[
-                        {'label': 'Sciences Humaines', 'value': 'sciences humaines'},
-                        {'label': 'Sciences Naturelles', 'value': 'sciences naturelles'},
-                        {'label': 'Inclassable', 'value': 'inclassable'}
-                    ],
+                    options=stackedbar_default_options,
                     value=['sciences humaines']  # Set initial value for checkbox-1
                 ),
-                dcc.Checklist(
+                 ], style=dict(display='flex')
+                 ),
+                html.Div([ html.Label("Variable: ", style=dict(fontWeight='bold')), 
+                dcc.RadioItems(
                     id='checkbox-2',
-                    options=[
-                        {'label': 'Grade', 'value': 'grade'},
-                        {'label': 'University', 'value': 'univ'},
-                        {'label': 'Language', 'value': 'langue'},
-                        {'label': 'Pages', 'value': 'range of pages'}
-                    ],
+                    options= stacked_bar_down_options,
                     value=['univ']  # Set initial value for checkbox-2
-                ),
-                html.Button('Press here', id="button")
+                )], style=dict(display='flex')),
+                html.Button('Cliquez ici', id="button")
             ]),
             html.Main(className='viz-container', children=[
                 dcc.Graph(id='stacked_bar', className='graph')
@@ -533,7 +541,8 @@ def update_stacked_area_chart(n_clicks, checkbox1_value, checkbox2_value):
 def update_sunburst_chart(langue_univ_value):
     figure = sunburst(df, langue_univ_value)
     return figure
-
+    
+# Stacked bar chart
 @app.callback(
     Output('stacked_bar', 'figure'),
     [Input('button', 'n_clicks')],
@@ -542,14 +551,14 @@ def update_sunburst_chart(langue_univ_value):
 )
 def update_stacked_bar(n_clicks, checkbox1_value, checkbox2_value):
     if n_clicks is not None:
-        print(f"Checkbox 1 value: {checkbox1_value[0]}")
-        print(f"Checkbox 2 value: {checkbox2_value[0]}")
-        figure = stacked_bar.get_figure(df, checkbox2_value[0], checkbox1_value[0])
+        print(f"Checkbox 1 value: {checkbox1_value}")
+        print(f"Checkbox 2 value: {checkbox2_value}")
+        figure = stacked_bar.get_figure(df, checkbox2_value, checkbox1_value)
         return figure
     else:
         default_figure = stacked_bar.get_figure(df, 'univ', 'sciences humaines')
         return default_figure
-
+        
 # Radar chart    
 @app.callback(
     Output('radar-graph-univ', 'figure'),  # Change id to 'radar-graph-univ'

@@ -10,7 +10,7 @@ def get_hover_discipline():
     return hovertemplate_master, hovertemplate_doctorat
     
 def get_hover_stacked_bar_chart(): 
-    hover_temp = 'Number of publications: %{x}<br>Discipline: %{y}'
+    hover_temp = 'Nombre de publications: %{x}<br>Discipline: %{y}'
     return hover_temp
 
 def get_hover_box_plot(name_text=None):

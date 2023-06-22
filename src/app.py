@@ -158,26 +158,24 @@ def render_page_content(pathname):
         return html.Div(
             className="stacked-area-content", children=[
                 html.Header(children=[
-                    dcc.Checklist(
-                        id='stacked-area-checkbox-1',
-                        options=[
-                            {'label': 'Universités', 'value': 'univ'},
-                            {'label': 'Domaines', 'value': 'domaine'},
-                            {'label': 'Langues', 'value': 'langue'},
-                            {'label': "Niveau d'études", 'value': 'grade'}
-                        ],
-                        value=['univ'] # initial value for stacked-area-checkbox-1
-                    ),
-                    dcc.Checklist(
-                        id='stacked-area-checkbox-2',
-                        options=[
-                            {'label': 'Compte', 'value': 'count'},
-                            {'label': 'Pourcentage', 'value': 'percentage'},
-                        ],
-                        value=['count']  # initial value for stacked-area-checkbox-2
-                    ),
-                    html.Button('Press here', id="button")
-                ]),
+                    html.Div([html.Label("Publications par : ", style=dict(fontWeight='bold')),
+                              dcc.RadioItems(
+                                  id='stacked-area-checkbox-1',
+                                  options=[{'label': 'Universités', 'value': 'univ'},
+                                           {'label': 'Domaines', 'value': 'domaine'},
+                                           {'label': 'Langues', 'value': 'langue'},
+                                           {'label': "Niveau d'études", 'value': 'grade'}],
+                                  value=['univ']),  # Set initial value for stacked-area-checkbox-1
+                              ], style=dict(display='flex')),
+                    html.Div([html.Label("Mode : ", style=dict(fontWeight='bold')),
+                              dcc.RadioItems(
+                                  id='stacked-area-checkbox-2',
+                                  options=[{'label': 'Compte', 'value': 'count'},
+                                           {'label': 'Pourcentage', 'value': 'percentage'}],
+                                  value=['count']),  # initial value for stacked-area-checkbox-2
+                            ], style=dict(display='flex')),
+                    html.Button('Cliquez ici', id="button"),
+                    ]),
                 html.Main(className='viz-container', children=[
                     dcc.Graph(id='stacked_area_chart', className='graph')
                 ])
@@ -524,9 +522,9 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
 )
 def update_stacked_area_chart(n_clicks, checkbox1_value, checkbox2_value):
     if n_clicks is not None:
-        print(f"Checkbox 1 value: {checkbox1_value[0]}")
-        print(f"Checkbox 2 value: {checkbox2_value[0]}")
-        figure = stacked_area_chart.get_figure(df, checkbox1_value[0], checkbox2_value[0])
+        print(f"Checkbox 1 value: {checkbox1_value}")
+        print(f"Checkbox 2 value: {checkbox2_value}")
+        figure = stacked_area_chart.get_figure(df, checkbox1_value, checkbox2_value)
         return figure
     else:
         default_figure = stacked_area_chart.get_figure(df, 'univ', 'count')

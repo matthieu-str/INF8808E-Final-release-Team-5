@@ -45,11 +45,11 @@ def update_graph(mode):
                 )
             ),
             showlegend = True,
-            title = f"{x} vs {y} by University",
+            title = f"{x} vs {y} par l'Université",
             legend=dict(x=.8, y=1),  # Adjust position of the legend
             annotations=[
                 dict(
-                    text="Radial axis in logarithmic scale",
+                    text="Axe radial en échelle logarithmique",
                     showarrow=False,
                     xref="paper", yref="paper",
                     x=0.5, y=-0.2  # Position of the annotation
@@ -95,7 +95,7 @@ def update_graph(mode):
                 )
             ),
             showlegend = True,
-            title = f"{x} vs {y} by top 10 discipline"
+            title = f"{x} vs {y} par top 10 des disciplines"
         )
 
     return {'data': data, 'layout': layout}

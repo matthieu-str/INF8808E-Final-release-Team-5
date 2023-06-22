@@ -221,7 +221,7 @@ def render_page_content(pathname):
                     ],
                 ),
                 dcc.Tab(
-                    label="Top 10 discipline",
+                    label="Top 10 disciplines",
                     value="tab-discipline",
                     children=[
                         dcc.Graph(

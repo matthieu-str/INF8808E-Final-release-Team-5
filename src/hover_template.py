@@ -8,7 +8,15 @@ def get_hover_discipline():
     hovertemplate_master = '<b>Maîtrise</b><br>Discipline: %{theta}<br>No. de thèses: %{r}<extra></extra>'
     hovertemplate_doctorat = '<b>Doctorat</b><br>Discipline: %{theta}<br>No. de dissertations: %{r}<extra></extra>'
     return hovertemplate_master, hovertemplate_doctorat
-    
+
+def get_hover_stacked_area_chart(mode):
+    if mode == 'count':
+        hover_temp = '<b>Année:</b> %{x}<br><b>Nombre de publications:</b> %{y}<br><b>Top 5 des disciplines:</b> %{customdata[0]}'
+        return hover_temp
+    else:
+        hover_temp = '<b>Année:</b> %{x}<br><b>Pourc. de publications:</b> %{y}%<br><b>Top 5 des disciplines:</b> %{customdata[0]}'
+        return hover_temp
+
 def get_hover_stacked_bar_chart(): 
     hover_temp = 'Nombre de publications: %{x}<br>Discipline: %{y}'
     return hover_temp

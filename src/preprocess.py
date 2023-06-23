@@ -47,83 +47,99 @@ def delete_duplicate_disciplines(df):
 
     return df
 
-def other_languages(df_count):
+def other_languages(df, grouped_by):
     '''
     This function is gathering all the other languages than English and French into an "other" category
-    :param df_count: input dataframe grouped by languages
+    :param df: input dataframe
+    :param grouped_by: boolean variable telling whether the dataframe is grouped by or not
     :return: processed dataframe
     '''
     langues_other = ["de", "es", "it", "pt"]
     pattern_langues_other = '|'.join(langues_other)
-    res = []
-    year_min = df_count["année"].min()
-    year_max = df_count["année"].max()
 
-    for year in range(year_min, year_max + 1):
-        total_other = df_count[(df_count["année"] == year) & (
-            df_count["langue"].str.contains(pattern_langues_other))]["count"].sum()
-        res.append([year, "autres", total_other])
+    if grouped_by:
 
-    df_other = pd.DataFrame(res, columns=["année", "langue", "count"])
+        res = []
+        year_min = df["année"].min()
+        year_max = df["année"].max()
 
-    df_count = df_count.drop(
-        df_count[df_count.langue.str.contains(pattern_langues_other)].index)
-    df_count = pd.concat([df_count, df_other])
+        for year in range(year_min, year_max + 1):
+            total_other = df[(df["année"] == year) & (
+                df["langue"].str.contains(pattern_langues_other))]["count"].sum()
+            res.append([year, "autres", total_other])
 
-    df_count.sort_values(by=["année"], ignore_index=True, inplace=True)
+        df_other = pd.DataFrame(res, columns=["année", "langue", "count"])
 
-    return df_count
+        df = df.drop(
+            df[df.langue.str.contains(pattern_langues_other)].index)
+        df = pd.concat([df, df_other])
+
+        df.sort_values(by=["année"], ignore_index=True, inplace=True)
+
+        return df
+
+    else:
+        df_copy = df.copy(deep=True)
+        df_copy.loc[df['langue'].str.contains(pattern_langues_other), 'langue'] = 'autres'
+        return df_copy
 
 def get_top_univ(df_count, n):
     '''
     Returns a list of the top 10 universities un terms of cumulated number of publications
-    :param df_count: grouped by dataframe
+    :param df_count: input dataframe
     :param n: number of top to keep
     :return: list of str containing top 10 university names
     '''
     return list(df_count.groupby(by=['univ'], as_index=False).sum('count')[['univ', 'count']].sort_values(by='count', ascending=False).head(n)['univ'])
 
-def other_univ(df_count):
+def other_univ(df, grouped_by, top_univ):
     '''
-    Only keeps the top 10 universities and replace all other by an "other" category
-    :param df_count: the grouped by dataframe
+    Only keeps the top n universities and replace all other by an "other" category
+    :param df: input dataframe
+    :param grouped_by: boolean telling whether the dataframe is grouped by
+    :param top_univ: list of top n universities
     :return: the processed dataframe
     '''
-    top_univ = get_top_univ(df_count, 5)
-    not_top_univ = list(set(list(df_count.univ.unique())) - set(top_univ))
+    not_top_univ = list(set(list(df.univ.unique())) - set(top_univ))
     pattern_univ_other = '|'.join(not_top_univ)
-    res = []
-    year_min = df_count["année"].min()
-    year_max = df_count["année"].max()
 
-    for year in range(year_min, year_max + 1):
-        total_other = df_count[(df_count["année"] == year) & (
-            df_count["univ"].str.contains(pattern_univ_other))]["count"].sum()
-        res.append([year, "Autres", total_other])
+    if grouped_by:
+        res = []
+        year_min = df["année"].min()
+        year_max = df["année"].max()
 
-    df_other = pd.DataFrame(res, columns=["année", "univ", "count"])
+        for year in range(year_min, year_max + 1):
+            total_other = df[(df["année"] == year) & (
+                df["univ"].str.contains(pattern_univ_other))]["count"].sum()
+            res.append([year, "Autres", total_other])
 
-    df_count = df_count.drop(
-        df_count[df_count.univ.str.contains(pattern_univ_other)].index)
-    df_count = pd.concat([df_count, df_other])
+        df_other = pd.DataFrame(res, columns=["année", "univ", "count"])
 
-    df_count.sort_values(by=["année"], ignore_index=True, inplace=True)
+        df = df.drop(df[df.univ.str.contains(pattern_univ_other)].index)
+        df = pd.concat([df, df_other])
 
-    return df_count
+        df.sort_values(by=["année"], ignore_index=True, inplace=True)
 
-def rename_languages(df_count):
+        return df
+
+    else:
+        df_copy = df.copy(deep=True)
+        df_copy.loc[df['univ'].str.contains(pattern_univ_other), 'univ'] = 'Autres'
+        return df_copy
+
+def rename_languages(df):
     '''
     Rename languages for better readability
-    :param df_count: grouped by dataframe
+    :param df: input dataframe
     :return: processed dataframe
     '''
-    df_count.langue.replace(to_replace='fr', value='français', inplace=True)
-    df_count.langue.replace(to_replace='en', value='anglais', inplace=True)
-    return df_count
+    df.langue.replace(to_replace='fr', value='français', inplace=True)
+    df.langue.replace(to_replace='en', value='anglais', inplace=True)
+    return df
 
-def rename_inclassable(df_count):
-    df_count.domaine.replace(to_replace='inclassable',
-                             value='programme individualisé ou inconnu',
-                             inplace=True)
-    return df_count
+def rename_inclassable(df):
+    df.domaine.replace(to_replace='inclassable',
+                       value='programme individualisé ou inconnu',
+                       inplace=True)
+    return df
 

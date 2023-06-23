@@ -1,4 +1,4 @@
-from preprocess import rename_languages,rename_inclassable
+from preprocess import rename_languages
 from hover_template import get_hover_stacked_bar_chart
 import plotly.express as px
 
@@ -11,11 +11,11 @@ def get_figure(data, colored, domaine):
         data = data[data['range of pages'] != '0']
     if colored == 'univ':
         top_5_universities=list(data.groupby(['univ']).size().reset_index(name='counts').sort_values(by='counts', ascending=False)['univ'].head(5))
-        data.loc[~data['univ'].isin(top_5_universities), 'univ'] = "Other universities"
+        data.loc[~data['univ'].isin(top_5_universities), 'univ'] = "Autres universités"
     if colored == 'langue':
         data=rename_languages(data)
         top_languages=list(data.groupby(['langue']).size().reset_index(name='counts').sort_values(by='counts', ascending=False)['langue'].head(2))
-        data.loc[~data['langue'].isin(top_languages), 'langue'] = "other languages"
+        data.loc[~data['langue'].isin(top_languages), 'langue'] = "autres langues"
     df_grouped = data.groupby(['discipline', colored]).size().unstack().fillna(0)
 
     # Reset the index to have 'discipline' as a column

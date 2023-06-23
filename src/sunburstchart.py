@@ -48,6 +48,10 @@ def sunburst(df, mode):
             maxdepth=2,
             branchvalues="total",
             insidetextorientation='horizontal',
+            insidetextfont=dict(
+                size=14,
+                color='white'
+            ),
             opacity=1,
             texttemplate='%{text}',
             text=[label.split('-')[-1].strip() for label in labels],
@@ -58,7 +62,14 @@ def sunburst(df, mode):
             # ),
         ))
         fig.update_layout(width=800, height=800,
-                          title='La répartition des langues dans différents domaines')
+                          title='La répartition des langues dans différents domaines',
+                          annotations=[dict(
+                            text='Cliquez sur chaque partie de domaine pour voir plus de détails',
+                            x=-0.05, y=1.05,
+                            showarrow=False,
+                            font=dict(size=12, color='black'),
+                            )]
+                         )
         fig.update_traces(
             hovertemplate=get_hover_sunburst_chart_langue(),
         )
@@ -94,13 +105,24 @@ def sunburst(df, mode):
             maxdepth=2,
             branchvalues="total",
             insidetextorientation='horizontal',
+            insidetextfont=dict(
+                size=14,
+                color='white'
+                ),
             opacity=1,
             texttemplate='%{text}',
             text=[label.split('-')[-1].strip() for label in labels],
         ))
 
         fig.update_layout(width=800, height=800,
-                          title='La répartition des 10 meilleures universités dans différents domaines')
+                          title='La répartition des 10 meilleures universités dans différents domaines',
+                          annotations=[dict(
+                              text='Cliquez sur chaque partie de domaine pour voir plus de détails',
+                              x=-0.05, y=1.05,
+                              showarrow=False,
+                              font=dict(size=12, color='black'),
+                          )]
+                          )
         fig.update_traces(
             hovertemplate=get_hover_sunburst_chart_univ(),
         )

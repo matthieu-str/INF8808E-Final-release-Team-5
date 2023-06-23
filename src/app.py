@@ -150,9 +150,22 @@ def render_page_content(pathname):
         return html.Div(
             className="home-content",
             children=[
-                html.H1("Welcome to the Home Page. More is Coming Soon ..."),
-                # We will add the content for the Home page here
-            ],
+                html.H1("Tracer les horizons du savoir : Un parcours visuel de la recherche supérieure au Québec"),
+                html.P("This is a sample home page created using Dash."),
+                html.H2("Quebec's universities have become renowned hubs of academic excellence, attracting a diverse array of students from around the world. Our project endeavors to visually explore the rich tapestry of theses and dissertations produced within these institutions. By analyzing trends and changes over time, we aim to uncover valuable insights into the landscape of graduate studies. The project's dashboard provides information on degree distributions, university affiliations, and disciplinary patterns from 2000 to 2022. Our target users include researchers, university administrators, libraries, funding institutions, research consultants, academic publications, graduate students, prospective students, and the general public. By gaining a deeper understanding of the research landscape, users can make informed decisions, track emerging trends, and contribute to the advancement of knowledge in Quebec's academic community."),
+                html.P(
+                    "This is a simple web application built with Dash. "
+                    "It demonstrates how to create multiple pages and navigate between them."
+                ),
+                html.H2("Instructions"),
+                html.P(
+                    "1. Click on the 'Go to About Page' link to navigate to the About page."
+                ),
+                html.P(
+                    "2. On the About page, click on the 'Go to Home Page' link to return to the Home page."
+                ),
+            ],          
+            style={"text-align": "center", "margin-top": "50px"}
         )
     elif pathname == "/stacked-area":
         return html.Div(
@@ -569,8 +582,4 @@ def update_radar_chart(n_clicks, dropdown_univ_discipline_value):
         return figure
     else:
         default_figure = init_figure()
-        return default_figure
-# back to back chart    
-        
-
-
+        return default_figure        

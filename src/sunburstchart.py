@@ -1,5 +1,102 @@
 import pandas as pd
 import plotly.express as px
+from hover_template import get_hover_sunburst_chart_langue, get_hover_sunburst_chart_univ
+from preprocess import rename_languages,rename_inclassable
+
+def sunburst(df, mode):
+    df=rename_inclassable(df)
+    if mode == 'univ':
+        # Get the unique values in the "domaine" column
+        domaines = df['domaine'].unique()
+        # Iterate over each unique "domaine" value
+        for domaine in domaines:
+            # Filter the data for the current "domaine" value
+            filtered_data = df[df['domaine'] == domaine]
+            # Count the number of occurrences for each university in the filtered data
+            univ_counts = filtered_data['univ'].value_counts()
+            # Get the top 5 universities
+            top_univs = univ_counts.index[:5]
+            # Iterate over each row in the filtered data
+            for index, row in filtered_data.iterrows():
+                # Check if the university is not in the top 5
+                if row['univ'] not in top_univs:
+                    # Rename the university to 'autres universités'
+                    df.at[index, 'univ'] = 'Autres universités'
+
+        df_domain_uni = df.groupby(["domaine", "univ"], as_index=False).count()[["domaine", "univ", "grade"]]
+        df_domain_uni.rename(columns={"grade": "count"}, inplace=True)
+        
+        fig = px.sunburst(df_domain_uni, path=['domaine', 'univ'], values='count', custom_data=['univ'])
+        fig.update_layout(width=700, height=700,
+                          title='La répartition des 5 meilleures universités dans différents domaines',
+                          annotations=[dict(
+                              text='Cliquez sur chaque partie de domaine pour voir plus de détails',
+                              x=-0.05, y=1.05,
+                              showarrow=False,
+                              font=dict(size=12, color='black'),
+                          )]
+                          )
+        # Customize label positions
+        fig.update_traces(
+            hoverlabel=dict(
+                align='right',
+                font=dict(size=12)
+            )
+        )
+        fig.update_traces(hovertemplate=get_hover_sunburst_chart_univ())
+
+    if mode == 'langue':
+        df=rename_languages(df)
+        # Get the unique values in the "domaine" column
+        domaines = df['domaine'].unique()
+        # Iterate over each unique "domaine" value
+        for domaine in domaines:
+            # Filter the data for the current "domaine" value
+            filtered_data = df[df['domaine'] == domaine]
+            # Count the number of occurrences for each language in the filtered data
+            langue_counts = filtered_data['langue'].value_counts()
+            # Get the top 2 languages
+            top_langues = langue_counts.index[:2]
+            # Iterate over each row in the filtered data
+            for index, row in filtered_data.iterrows():
+                # Check if the language is not in the top 2
+                if row['langue'] not in top_langues:
+                    # Rename the university to 'autres universités'
+                    df.at[index, 'langue'] = 'autres langues'
+
+        df_domain_languages = df.groupby(["domaine", "langue"], as_index=False).count()[["domaine", "langue", "grade"]]
+        df_domain_languages.rename(columns={"grade": "count"}, inplace=True)
+
+        fig = px.sunburst(df_domain_languages, path=['domaine', 'langue'], values='count', custom_data=['langue'])
+        fig.update_layout(width=700, height=700,
+                          title='La répartition des langues dans différents domaines',
+                          annotations=[dict(
+                            text='Cliquez sur chaque partie de domaine pour voir plus de détails',
+                            x=-0.05, y=1.05,
+                            showarrow=False,
+                            font=dict(size=12, color='black'),
+                            )]
+                         )
+        # Customize label positions
+        fig.update_traces(
+            hoverlabel=dict(
+                align='right',
+                font=dict(size=12)
+            )
+        )
+        fig.update_traces(
+            hovertemplate=get_hover_sunburst_chart_langue()
+        )
+    return fig
+
+
+
+
+
+"""
+
+import pandas as pd
+import plotly.express as px
 import plotly.graph_objects as go
 from hover_template import get_hover_sunburst_chart_langue, get_hover_sunburst_chart_univ
 
@@ -126,4 +223,4 @@ def sunburst(df, mode):
         fig.update_traces(
             hovertemplate=get_hover_sunburst_chart_univ(),
         )
-    return fig
+    return fig"""

@@ -101,15 +101,16 @@ import plotly.graph_objects as go
 from hover_template import get_hover_sunburst_chart_langue, get_hover_sunburst_chart_univ
 
 def sunburst(df, mode):
-    df['langue_new'] = df['langue'].str.lower().map({'fr': 'fr', 'en': 'en'}).fillna('the others')
-    language_map = {"fr": "Français", "en": "Anglais", "the others": "the others"}
+    df['langue_new'] = df['langue'].str.lower().map({'fr': 'fr', 'en': 'en'}).fillna('les autres')
+    language_map = {"fr": "Français", "en": "Anglais", "les autres": "les autres"}
     df['langue_new'] = df['langue_new'].map(language_map)
-    df = df[~df['domaine'].isin(['inclassable'])]
-    df = df[~df['langue_new'].isin(['the others'])]
+    # df = df[~df['domaine'].isin(['inclassable'])]
+    # df = df[~df['langue_new'].isin(['les autres'])]
 
     df_domain_languages = df.groupby(["domaine", "langue_new"], as_index=False).count()[
         ["domaine", "langue_new", "grade"]]
     df_domain_languages.rename(columns={"grade": "count"}, inplace=True)
+
 
     df_domain_uni = df.groupby(["domaine", "univ"], as_index=False).count()[["domaine", "univ", "grade"]]
     df_domain_uni.rename(columns={"grade": "count"}, inplace=True)
@@ -132,6 +133,8 @@ def sunburst(df, mode):
             labels.append(domain)
             parents.append('')
             values.append(domain_values)
+            if domain == 'inclassable':
+                continue
             for row in domain_df.itertuples():
                 labels.append(f"{domain}-{row.langue_new}")
                 parents.append(domain)
@@ -185,12 +188,14 @@ def sunburst(df, mode):
             labels.append(domain)
             parents.append('')
             values.append(domain_values)
+            if domain == 'inclassable':
+                continue
             for row in top10_children.itertuples():
                 labels.append(f"{domain}-{row.univ}")
                 parents.append(domain)
                 values.append(row.count)
             other_count = domain_values - top10_children["count"].sum()
-            labels.append(f"{domain}-the others")
+            labels.append(f"{domain}-les autres")
             parents.append(domain)
             values.append(other_count)
 

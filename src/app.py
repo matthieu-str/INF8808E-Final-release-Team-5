@@ -23,15 +23,16 @@ from radar_chart import init_figure, update_graph
 df = pd.read_csv("assets/data/thesesMemoiresQC2000-2022-v20230508-1.csv", na_values="?")
 df = preproc.to_lowercase(df)
 df = preproc.assign_and_range_pages(df)
+df = preproc.rename_inclassable(df)
 df = preproc.delete_unecessary_columns(df)
 df = preproc.delete_duplicate_disciplines(df)
-df_const = df
+
 
 # Update labels of stacked bar chart
 stackedbar_default_options = [
                         {'label': 'Sciences Humaines', 'value': 'sciences humaines'},
                         {'label': 'Sciences Naturelles', 'value': 'sciences naturelles'},
-                        {'label': 'Programme individualisé ou inconnu', 'value': 'inclassable'}
+                        {'label': 'Programme individualisé ou inconnu', 'value': 'programme individualisé ou inconnu'}
                     ]
 stacked_bar_down_options = [
                         {'label': "Niveau d'études", 'value': 'grade'},
@@ -156,8 +157,7 @@ app.css.external_stylesheets = external_css
 def update_navlink_styles(pathname):
     return callback.update_navlink_styles(pathname)
 
-# Update page content based on URL pathname
-# Update page content based on URL pathname
+
 # Update page content based on URL pathname
 @app.callback(Output("page-content", "children"), Input("url", "pathname"))
 def render_page_content(pathname):
@@ -399,7 +399,7 @@ def update_radio_buttons(dropdown_value):
                         {"label": "All", "value": "all"},
                         {"label": "Sciences Humaines", "value": "sciences humaines"},
                         {"label": "Sciences Naturelles", "value": "sciences naturelles"},
-                        {"label": "Inclassable", "value": "inclassable"},
+                        {"label": "Programme individualisé ou inconnu", "value": "programme individualisé ou inconnu"},
                     ],
                     value="all",
                     className="radio",
@@ -433,7 +433,7 @@ def update_radio_buttons(dropdown_value):
     Input("radio-value", "value"),
 )
 def update_overview_content(dropdown_value, radio_value):
-    filtered_df = df_const
+    filtered_df = df
     context_title =""
   
     if dropdown_value == "domaine":
@@ -468,7 +468,7 @@ def update_radio_buttons_maitrise_doctorat(dropdown_value):
                         {"label": "All", "value": "all"},
                         {"label": "Sciences Humaines", "value": "sciences humaines"},
                         {"label": "Sciences Naturelles", "value": "sciences naturelles"},
-                        {"label": "Inclassable", "value": "inclassable"},
+                        {"label": "Programme individualisé ou inconnu", "value": "programme individualisé ou inconnu"},
                     ],
                     value="all",
                     className="radio",
@@ -503,7 +503,7 @@ def update_radio_buttons_maitrise_doctorat(dropdown_value):
     Input("radio-value-maitrise-doctorat", "value"),
 )
 def update_maitrise_doctorat_content(dropdown_value, radio_value):
-    df = df_const
+
     context_title = ""
     filtered_df_maitrise = df[df['grade'] == 'maîtrise']
     filtered_df_doctorat = df[df['grade'] == 'doctorat']
@@ -518,7 +518,7 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
                 filtered_df_doctorat["domaine"] == radio_value
             ]
             context_title = " in " + str(radio_value)
-            if radio_value == "inclassable":
+            if radio_value == "programme individualisé ou inconnu":
                 context_title = " in other and personalized domaines"
     elif dropdown_value == "langue":
         context_title = " written in all languages"

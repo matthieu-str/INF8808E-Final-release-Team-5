@@ -38,4 +38,5 @@ def get_figure(data, colored, domaine):
     fig.update_yaxes(title_text="Discipline")
     # Size of figure
     fig.update_layout(height=900, width=900, legend_title='Catégories '+Variable_options[colored])
+    fig.update_traces(hoverlabel=dict(namelength=0))
     return fig

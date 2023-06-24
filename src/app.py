@@ -437,15 +437,24 @@ def update_overview_content(dropdown_value, radio_value):
     context_title =""
   
     if dropdown_value == "domaine":
+        context_title = " dans tous les domaines"
         if radio_value != "all":
             filtered_df = filtered_df[filtered_df["domaine"] == radio_value]
+            context_title = " dans les " + str(radio_value)
+            if radio_value == "programme individualisé ou inconnu":
+                context_title = " dans les programmes individualisés ou inconnus"
+
     elif dropdown_value == "langue":
+        context_title = " rédigés dans toutes les langues"
         if radio_value == "fr":
             filtered_df = filtered_df[filtered_df["langue"] == "fr"]
+            context_title = " rédigés en Français"
         elif radio_value == "en":
             filtered_df = filtered_df[filtered_df["langue"] == "en"]
+            context_title = " rédigés en Anglais"
         elif radio_value == "others":
             filtered_df = filtered_df[df["langue"].isin(["es", "it", "de", "pt"])]
+            context_title = " rédigés dans les autres langues"
 
     fig = overview_box_plot(filtered_df, context_title)
 
@@ -465,7 +474,7 @@ def update_radio_buttons_maitrise_doctorat(dropdown_value):
                 dcc.RadioItems(
                     id="radio-value-maitrise-doctorat",
                     options=[
-                        {"label": "All", "value": "all"},
+                        {"label": "Tous", "value": "all"},
                         {"label": "Sciences Humaines", "value": "sciences humaines"},
                         {"label": "Sciences Naturelles", "value": "sciences naturelles"},
                         {"label": "Programme individualisé ou inconnu", "value": "programme individualisé ou inconnu"},
@@ -482,10 +491,10 @@ def update_radio_buttons_maitrise_doctorat(dropdown_value):
                 dcc.RadioItems(
                     id="radio-value-maitrise-doctorat",
                     options=[
-                        {"label": "All", "value": "all"},
+                        {"label": "Toutes", "value": "all"},
                         {"label": "Français", "value": "fr"},
                         {"label": "Anglais", "value": "en"},
-                        {"label": "Others", "value": "others"},
+                        {"label": "Autres", "value": "others"},
                     ],
                     value="all",
                     className="radio",
@@ -509,7 +518,7 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
     filtered_df_doctorat = df[df['grade'] == 'doctorat']
 
     if dropdown_value == "domaine":
-        context_title = " in all domaines"
+        context_title = " dans tous les domaines"
         if radio_value != "all":
             filtered_df_maitrise = filtered_df_maitrise[
                 filtered_df_maitrise["domaine"] == radio_value
@@ -517,11 +526,11 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
             filtered_df_doctorat = filtered_df_doctorat[
                 filtered_df_doctorat["domaine"] == radio_value
             ]
-            context_title = " in " + str(radio_value)
+            context_title = " dans les " + str(radio_value)
             if radio_value == "programme individualisé ou inconnu":
-                context_title = " in other and personalized domaines"
+                context_title = " dans les programmes individualisés ou inconnus"
     elif dropdown_value == "langue":
-        context_title = " written in all languages"
+        context_title = " rédigés dans toutes les langues"
         if radio_value == "fr":
             filtered_df_maitrise = filtered_df_maitrise[
                 filtered_df_maitrise["langue"] == "fr"
@@ -529,7 +538,7 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
             filtered_df_doctorat = filtered_df_doctorat[
                 filtered_df_doctorat["langue"] == "fr"
             ]
-            context_title = " written in French (en Français)"
+            context_title = " rédigés en Français"
         elif radio_value == "en":
             filtered_df_maitrise = filtered_df_maitrise[
                 filtered_df_maitrise["langue"] == "en"
@@ -537,7 +546,7 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
             filtered_df_doctorat = filtered_df_doctorat[
                 filtered_df_doctorat["langue"] == "en"
             ]
-            context_title = " written in English (en Anglais)"
+            context_title = " rédigés en Anglais"
         elif radio_value == "others":
             filtered_df_maitrise = filtered_df_maitrise[
                 df["langue"].isin(["es", "it", "de", "pt"])
@@ -545,7 +554,7 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
             filtered_df_doctorat = filtered_df_doctorat[
                 df["langue"].isin(["es", "it", "de", "pt"])
             ]
-            context_title = " written in other languages"
+            context_title = " rédigés dans les autres langues"
 
     fig = mvd_box_plot(filtered_df_maitrise, filtered_df_doctorat, context_title)
 

@@ -4,20 +4,22 @@ from hover_template import get_hover_box_plot
 import plotly.colors
 
 
-def overview_box_plot(filtered_df):
+def overview_box_plot(filtered_df, context_title):
 
+    text =  "Diagramme en Boîte du Nombre de Pages par Année"
+    title_text = text + context_title
     fig = px.box(filtered_df, x="année", y="pages")
     color_palette = ["rgb(0, 0, 0)"] + plotly.colors.sequential.Viridis
 
     fig.update_layout(
         title={
-            'text': "Box Plot of Number of Pages by Year",
+            'text': title_text,
             'x': 0.5,
             'xanchor': 'center',
             'yanchor': 'top'
             },
-        xaxis_title="Year",
-        yaxis_title="Number of Pages",
+        xaxis_title="Année",
+        yaxis_title="Nombre de Pages",
         showlegend=True)
     fig.update_traces(
         hovertemplate=get_hover_box_plot(name_text=None),
@@ -27,7 +29,7 @@ def overview_box_plot(filtered_df):
 
 def mvd_box_plot(filtered_df_maitrise, filtered_df_doctorat, context_title):
     
-    text = "Comparison of Number of Pages by Year for Maîtrise and Doctorat"
+    text = "Comparaison du Nombre de Pages par Année à la Maîtrise et au Doctorat"
     title_text = text + context_title
     
     fig = go.Figure()
@@ -58,8 +60,8 @@ def mvd_box_plot(filtered_df_maitrise, filtered_df_doctorat, context_title):
             'xanchor': 'center',
             'yanchor': 'top'
             },
-        xaxis_title="Year",
-        yaxis_title="Number of Pages",
+        xaxis_title="Année",
+        yaxis_title="Nombre de Pages",
         boxmode="group",
         showlegend=True)
 

@@ -12,13 +12,13 @@ def delete_unecessary_columns(df):
 def assign_and_range_pages(df):
     def assign_page_range(pages):
         if pages > 0 and pages <= 100:
-            return '[0-100]'
+            return '[0-100] pages'
         elif pages <= 250:
-            return '[101-250]'
+            return '[101-250] pages'
         elif pages <= 500:
-            return '[251-500]'
+            return '[251-500] pages'
         elif pages <= 2035:
-            return '[501-2035]'
+            return '[501-2035] pages'
         else: 
             return '0'
     

@@ -72,3 +72,74 @@
   border-right: 1px solid #e0e0e0;
   border-left: 1px solid #e0e0e0;
 }
+
+:root {
+  --blue: #43A1D5;
+  --gold: #D5B048;
+  --navy_blue: #173E69;
+
+  --light_blue: #AEDDF8;
+  --light_gold: #F3DFA5;
+  --light_navy_blue: #3772B4;
+
+  --background: #FFFFFF;
+  --onBackground: #000000;
+}
+
+
+.upper-part {
+    background-color: var(--navy_blue);
+}
+
+
+.content {
+    background: rgba(255, 255, 255, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, rgba(255, 255, 255, .25) 25%, rgba(255, 255, 255, .5) 40%, rgba(255, 255, 255, .75) 60%, rgba(255, 255, 255, 1) 100%) repeat scroll 0 0;
+    position: relative;
+    margin-top: -31.25rem;
+    height: 31.25rem;
+}
+
+.welcome-title {
+    color: var(--navy_blue);
+    font-family: 'Oswald';
+    font-size: 2.8rem;
+    position: absolute;
+    bottom: .5rem;
+    left:  50%;
+}
+
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.graph-container {
+  flex: 1 1 auto;
+  max-height: 500px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radio-group-text {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.markdown-title {
+    font-family: 'Oswald';
+    color: var(--navy_blue);
+}
+
+.metric-text {
+    display: none;
+}
+
+
+.header-img {
+  width: 100%;
+  max-height: 400px; /* specify a max-height in px */
+  object-fit: cover; /* this will ensure the image covers the whole area */
+}

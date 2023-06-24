@@ -336,14 +336,14 @@ def render_page_content(pathname):
                     value="tab-overview",
                     children=[
                         dcc.Tab(
-                            label="Overview",
+                            label="Vue d'ensemble",
                             value="tab-overview",
                             children=[
                                 dcc.Dropdown(
                                     id="dropdown-value",
                                     options=[
                                         {"label": "Domaine", "value": "domaine"},
-                                        {"label": "Language", "value": "langue"},
+                                        {"label": "Langue", "value": "langue"},
                                     ],
                                     value="domaine",
                                     className="dropdown",
@@ -360,7 +360,7 @@ def render_page_content(pathname):
                                     id="dropdown-value-maitrise-doctorat",
                                     options=[
                                         {"label": "Domaine", "value": "domaine"},
-                                        {"label": "Language", "value": "langue"},
+                                        {"label": "Langue", "value": "langue"},
                                     ],
                                     value="domaine",
                                     className="dropdown",
@@ -396,7 +396,7 @@ def update_radio_buttons(dropdown_value):
                 dcc.RadioItems(
                     id="radio-value",
                     options=[
-                        {"label": "All", "value": "all"},
+                        {"label": "Tous", "value": "all"},
                         {"label": "Sciences Humaines", "value": "sciences humaines"},
                         {"label": "Sciences Naturelles", "value": "sciences naturelles"},
                         {"label": "Programme individualisé ou inconnu", "value": "programme individualisé ou inconnu"},
@@ -413,10 +413,10 @@ def update_radio_buttons(dropdown_value):
                 dcc.RadioItems(
                     id="radio-value",
                     options=[
-                        {"label": "All", "value": "all"},
+                        {"label": "Toutes", "value": "all"},
                         {"label": "Français", "value": "fr"},
                         {"label": "Anglais", "value": "en"},
-                        {"label": "Others", "value": "others"},
+                        {"label": "Autres", "value": "others"},
                     ],
                     value="all",
                     className="radio",

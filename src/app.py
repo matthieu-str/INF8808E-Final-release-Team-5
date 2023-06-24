@@ -604,4 +604,17 @@ def update_radar_chart(n_clicks, dropdown_univ_discipline_value):
         return figure
     else:
         default_figure = init_figure()
-        return default_figure    
+        return default_figure 
+# Define the callback for back to back
+@app.callback(
+    Output('btb-graph', 'figure'),
+    [Input('btb-tabs', 'value')]
+)
+def update_back_to_back_graph(tab_value):
+    if tab_value == "tab-master":
+        return back_to_back(df, 'maîtrise')
+    elif tab_value == "tab-phd":
+        return back_to_back(df, 'doctorat')
+    else:
+        return back_to_back(df, 'maîtrise')
+      

@@ -29,7 +29,7 @@
   width: 100%;
   background-color: #f8f8f8;
   text-align: center;
-  padding: 1px 0;
+  padding: 2px 0;
   font-size: 14px;
   color: #999999;
 }
@@ -98,32 +98,42 @@ object-fit: cover;
 }
 
 .home-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
   text-align: center;
-  margin-top: 50px;
+  background-color: #1bd46f9a; 
 }
 
-.home-content h1 {
-  color: #343a40;
-  font-size: 2.5rem;
+.home-content .title {
+  font-size: 32px;
   font-weight: bold;
-  margin-bottom: 20px;
+  color: #333;
 }
 
-.home-content p {
-  color: #495057;
-  font-size: 1.1rem;
+
+.home-content .section-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-.home-content h2 {
-  color: #495057;
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-top: 30px;
+.home-content .text {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #333;
+  font-weight: normal;
+  text-align: justify;
+  line-height: 1.5;
 }
 
-.home-content h2.instructions {
-  color: #343a40;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-top: 50px;
+.home-content .instructions {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #333;
+  width: fit-content;
+  font-weight: normal;
+  text-align: justify;
+  margin-bottom: 10px;
+  line-height: 1.5;
 }

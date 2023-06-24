@@ -432,7 +432,8 @@ def update_radio_buttons(dropdown_value):
 )
 def update_overview_content(dropdown_value, radio_value):
     filtered_df = df
-
+    context_title =""
+  
     if dropdown_value == "domaine":
         if radio_value != "all":
             filtered_df = filtered_df[filtered_df["domaine"] == radio_value]
@@ -444,7 +445,7 @@ def update_overview_content(dropdown_value, radio_value):
         elif radio_value == "others":
             filtered_df = filtered_df[df["langue"].isin(["es", "it", "de", "pt"])]
 
-    fig = overview_box_plot(filtered_df)
+    fig = overview_box_plot(filtered_df, context_title)
 
     return dcc.Graph(figure=fig)
 

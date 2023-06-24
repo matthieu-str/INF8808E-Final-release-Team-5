@@ -1,130 +1,129 @@
 .navbar {
-    display: flex;
-    justify-content: center;
-    background-color: #f3dbdb;
-    align-items: center;
-    color: #ffffff;
-    padding: 10px;
-  }
+  display: flex;
+  justify-content: center;
+  background-color: #f3dbdb;
+  align-items: center;
+  color: #ffffff;
+  padding: 10px;
+}
 
 .navlink {
-    display: inline-block;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 30px;
-    background-color: #f1eeee;
-    color: #ffffff;
-    text-decoration: none;
-    transition: background-color 0.3s;
-  }
-  
-  .navlink:hover {
-    background-color: #555555;
-  }
-  
+  display: inline-block;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 30px;
+  background-color: #f1eeee;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
 
-  .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #f8f8f8;
-    text-align: center;
-    padding: 2px 0;
-    font-size: 14px;
-    color: #999999;
-  }
-  
+.navlink:hover {
+  background-color: #555555;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f8f8;
+  text-align: center;
+  padding: 2px 0;
+  font-size: 14px;
+  color: #999999;
+}
+
 
 .tabs {
-  margin-bottom: 20px; 
+margin-bottom: 20px; 
 }
 
 
 .tab-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  background-color: #f0f0f0;
-  padding: 10px 20px;
-  border-radius: 5px 5px 0 0;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+font-weight: bold;
+cursor: pointer;
+background-color: #f0f0f0;
+padding: 10px 20px;
+border-radius: 5px 5px 0 0;
 }
 
 .tab-header:hover {
-  background-color: #e0e0e0;
+background-color: #e0e0e0;
 }
 
 .tab-header-active {
-  background-color: #ffffff;
+background-color: #ffffff;
 }
 
-
 .tab-content {
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 0 5px 5px 5px;
-  border-top: 1px solid #e0e0e0;
-  border-right: 1px solid #e0e0e0;
-  border-left: 1px solid #e0e0e0;
+padding: 20px;
+background-color: #ffffff;
+border-radius: 0 5px 5px 5px;
+border-top: 1px solid #e0e0e0;
+border-right: 1px solid #e0e0e0;
+border-left: 1px solid #e0e0e0;
 }
 
 :root {
-  --blue: #43A1D5;
-  --gold: #D5B048;
-  --navy_blue: #173E69;
 
-  --light_blue: #AEDDF8;
-  --light_gold: #F3DFA5;
-  --light_navy_blue: #3772B4;
-
-  --background: #FFFFFF;
-  --onBackground: #000000;
+--navy_blue: #173E69;
 }
-
-
-.upper-part {
-    background-color: var(--navy_blue);
-}
-
 
 .content {
-    background: rgba(255, 255, 255, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, rgba(255, 255, 255, .25) 25%, rgba(255, 255, 255, .5) 40%, rgba(255, 255, 255, .75) 60%, rgba(255, 255, 255, 1) 100%) repeat scroll 0 0;
-    position: relative;
-    margin-top: -31.25rem;
-    height: 31.25rem;
+  background: rgba(255, 255, 255, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, rgba(255, 255, 255, .25) 25%, rgba(255, 255, 255, .5) 40%, rgba(255, 255, 255, .75) 60%, rgba(255, 255, 255, 1) 100%) repeat scroll 0 0;
+  position: relative;
+  margin-top: -31.25rem;
+  height: 31.25rem;
 }
 
 .welcome-title {
-    color: var(--navy_blue);
-    font-family: 'Oswald';
-    font-size: 2.8rem;
-    position: absolute;
-    bottom: .5rem;
-    left:  50%;
-}
-
-
-.app-container {
-  display: flex;
-  flex-direction: column;
-}
-
-
-.markdown-title {
-    font-family: 'Oswald';
-    color: var(--navy_blue);
-}
-
-.metric-text {
-    display: none;
+  color: var(--navy_blue);
+  font-family: 'Oswald';
+  font-size: 2.8rem;
+  position: absolute;
+  bottom: .5rem;
+  left:  50%;
 }
 
 
 .header-img {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
+width: 100%;
+max-height: 400px;
+object-fit: cover;
+}
+
+.home-content {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.home-content h1 {
+  color: #343a40;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.home-content p {
+  color: #495057;
+  font-size: 1.1rem;
+}
+
+.home-content h2 {
+  color: #495057;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 30px;
+}
+
+.home-content h2.instructions {
+  color: #343a40;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 50px;
 }

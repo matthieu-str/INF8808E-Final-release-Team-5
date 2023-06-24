@@ -60,6 +60,7 @@ def get_figure(df, y_axis, mode):
     fig.update_layout(legend_traceorder='reversed')
     fig.update_layout(height=600, width=1200)
     fig.update_xaxes(title_text="Année", title_font=dict(size=20))
+    fig.update_traces(hoverlabel=dict(namelength=0))
 
     if mode == 'count':
         fig.update_yaxes(title_text='')

@@ -165,28 +165,29 @@ def render_page_content(pathname):
             className="home-content",
             children=[
                 html.H1(
-                    "Tracer les horizons du savoir : Un parcours visuel de la recherche supérieure au Québec", 
-                    className="title"),
-                html.H2(
-                    "Quebec's universities have become renowned hubs of academic excellence, attracting a " \
-                    "diverse array of students from around the world. Our project endeavors to visually explore " \
-                    "the rich tapestry of theses and dissertations produced within these institutions. By analyzing " \
-                    "trends and changes over time, we aim to uncover valuable insights into the landscape of graduate " \
-                    "studies. The project's dashboard provides information on degree distributions, university affiliations, " \
-                    "and disciplinary patterns from 2000 to 2022. Our target users include researchers, university " \
-                    "administrators, libraries, funding institutions, research consultants, academic publications, " \
-                    "graduate students, prospective students, and the general public. By gaining a deeper understanding " \
-                    "of the research landscape, users can make informed decisions, track emerging trends, and contribute " \
-                    "to the advancement of knowledge in Quebec's academic community.", 
-                    className="text"),
-                html.H2(
-                    "Instructions", className="section-title"),
+                    "Tracer les horizons du savoir : Un parcours visuel de la recherche en études supérieures au Québec"),
                 html.P(
-                    "1. Click on the 'Go to About Page' link to navigate to the About page.",
-                    className="text"),
+                    "PROJET INF8808 - 2022/2023"),
+                html.H2(
+                    "Les universités québécoises sont devenues des établissements réputés pour leur excellence académique, attirant un large éventail d'étudiants du monde entier. Notre projet vise à explorer visuellement la riche tapisserie des thèses et mémoires produits au sein de ces institutions. En analysant les tendances et les changements au fil du temps, nous visons à découvrir des informations précieuses sur le domaine des études supérieures. Le tableau de bord du projet fournit des informations sur la répartition des diplômes, les affiliations universitaires et les tendances disciplinaires de 2000 à 2022. Nos utilisateurs cibles sont les chercheurs, les administrateurs d'université, les bibliothèques, les institutions de financement, les consultants en recherche, les publications universitaires, les étudiants diplômés, les futurs étudiants et le grand public. En acquérant une meilleure compréhension du milieu de la recherche, les utilisateurs peuvent prendre des décisions éclairées, suivre les tendances émergentes et contribuer à l'avancement des connaissances au sein de la communauté universitaire québécoise."),
                 html.P(
-                    "2. On the About page, click on the 'Go to Home Page' link to return to the Home page.",
-                    className="text"),
+                    "Les visualisations réalisées peuvent être classées en deux sections, la première étant consacrée aux tendances temporelles de l'évolution des publications au fil des ans et la seconde à la présentation de la répartition du nombre de publications à un niveau plus granulaire. Pour plus d'informations, lisez les sections ci-dessous."),
+                html.H2(
+                    "Section 1", className="Section 1"),
+                html.P(
+                    "Stacked Area chart : affiche les tendances temporelles du nombre de publications en fonction de variables majeures telles que les domaines, les universités, les langues et les niveaux d'études. Ces informations peuvent être affichées en mode pourcentage ou comptage."),
+                html.P(
+                    "Back to back chart : présente l'évolution de la répartition des langues entre les années et les diplômes ( maîtrise et doctorat) dans les universités québécoises entre 2000 et 2022."),
+                html.P(
+                    "Box plot : montre l'évolution de la longueur des publications au fil des années en fonction des niveaux d'études, des domaines ou des langues."),
+                html.H2(
+                    "Section 2", className="Section 2"),
+                html.P(
+                    "Stacked bar chart : donne un aperçu de la répartition des langues, des diplômes, des universités ou même du nombre de pages dans les différentes disciplines qui ont été catégorisées en fonction du domaine principal."),
+                html.P(
+                    "Radar chart : présente des informations relatives aux différents types de diplômes ( Maîtrise et doctorat). Ces informations peuvent être visualisées sur différentes universités ou sur les plus importantes disciplines existantes."),
+                html.P(
+                    "Sunburst chart : vise à montrer la répartition des langues des documents en fonction des domaines ou des universités."),
             ]
         )
     elif pathname == "/stacked-area":

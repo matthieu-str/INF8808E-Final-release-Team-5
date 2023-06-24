@@ -53,43 +53,43 @@ navbar = html.Nav(
                     className="navlink-container",
                     children=[
                         dcc.Link(
-                            html.Span("Home", title="Click to go back to the Home page"),
+                            html.Span("Home", title="Cliquez pour revenir à la page d'accueil"),
                             href="/",
                             className="navlink",
                             id="navlink-home",
                         ),
                         dcc.Link(
-                            html.Span("Stacked Area Chart", title="Click to display the Stacked Area Chart page"),
+                            html.Span("Stacked Area Chart", title="Cliquez pour afficher Stacked Area Chart page"),
                             href="/stacked-area",
                             className="navlink",
                             id="navlink-stacked-area",
                         ),
                         dcc.Link(
-                            html.Span("Stacked Bar Chart", title="Click to display the Stacked Bar Charts"),
+                            html.Span("Stacked Bar Chart", title="Cliquez pour afficher Stacked Bar Charts"),
                             href="/stacked-bar",
                             className="navlink",
                             id="navlink-stacked-bar",
                         ),
                         dcc.Link(
-                            html.Span("Radar Chart", title="Click to display the Radar Charts"),
+                            html.Span("Radar Chart", title="Cliquez pour afficher Radar Charts"),
                             href="/radar",
                             className="navlink",
                             id="navlink-radar",
                         ),
                         dcc.Link(
-                            html.Span("Sunburst Chart", title="Click to display the Sunburst Charts"),
+                            html.Span("Sunburst Chart", title="Cliquez pour afficher Sunburst Charts"),
                             href="/sunburst",
                             className="navlink",
                             id="navlink-sunburst",
                         ),
                         dcc.Link(
-                            html.Span("Back to Back Bar Chart", title="Click to display the Back to Back Bar Charts"),
+                            html.Span("Back to Back Bar Chart", title="Cliquez pour afficher Back to Back Bar Charts"),
                             href="/back-to-back-bar",
                             className="navlink",
                             id="navlink-back-to-back-bar",
                         ),
                         dcc.Link(
-                            html.Span("Box Plot", title="Click to display the Box Plots"),
+                            html.Span("Box Plot", title="Cliquez pour afficher the Box Plots"),
                             href="/box-plots",
                             className="navlink",
                             id="navlink-box-plots",
@@ -105,7 +105,7 @@ navbar = html.Nav(
 footer = html.Footer(
     className="footer",
     children=[
-        html.P("This web app was developed as a project in the awesome INF8808E course at Polytechnique Montréal."),
+        html.P("Cette application Web a été développée en tant que projet dans le cadre du cours INF8808E de Polytechnic Montréal."),
     ],
 )
 
@@ -118,7 +118,7 @@ def welcome_page():
         html.Img(className='header-img', src=image_path),
         html.Div(className='content', children=[
             html.Div(className='welcome-title', children=[
-                'Postgraduate studies in Quebec universities between 2000 and 2022'
+                'Études supérieures dans les universités québécoises entre 2000 et 2022'
             ])
         ]),
     ])
@@ -167,12 +167,9 @@ def render_page_content(pathname):
             children=[
                 html.H1(
                     "Tracer les horizons du savoir : Un parcours visuel de la recherche supérieure au Québec"),
-                html.P(
-                    "This is a sample home page created using Dash."),
-                html.H2(
-                    "Quebec's universities have become renowned hubs of academic excellence, attracting a diverse array of students from around the world. Our project endeavors to visually explore the rich tapestry of theses and dissertations produced within these institutions. By analyzing trends and changes over time, we aim to uncover valuable insights into the landscape of graduate studies. The project's dashboard provides information on degree distributions, university affiliations, and disciplinary patterns from 2000 to 2022. Our target users include researchers, university administrators, libraries, funding institutions, research consultants, academic publications, graduate students, prospective students, and the general public. By gaining a deeper understanding of the research landscape, users can make informed decisions, track emerging trends, and contribute to the advancement of knowledge in Quebec's academic community."),
-                html.P(
-                    "This is a simple web application built with Dash. It demonstrates how to create multiple pages and navigate between them."),
+                
+                html.H2("Les universités du Québec sont devenues des pôles d'excellence académique renommés, attirant un large éventail d'étudiants du monde entier. Notre projet s'efforce d'explorer visuellement la riche mosaïque de thèses et de mémoires produits au sein de ces institutions. En analysant les tendances et les changements au cours temps, nous visons à découvrir des informations précieuses sur le paysage des études supérieures.Le tableau de bord du projet fournit des informations sur la répartition des diplômes, les affiliations universitaires et les modèles disciplinaires de 2000 à 2022. Nos utilisateurs cibles comprennent les chercheurs, les administrateurs universitaires, les bibliothèques, les institutions de financement, les chercheurs consultants, publications académiques, étudiants diplômés, futurs étudiants et grand public. En acquérant une meilleure compréhension du paysage de la recherche, les utilisateurs peuvent prendre des décisions éclairées, suivre les tendances émergentes et contribuer à l'avancement des connaissances dans la communauté universitaire québécoise.") ,
+                 
                 html.H2(
                     "Instructions", className="instructions"),
                 html.P(

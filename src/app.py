@@ -25,6 +25,7 @@ df = preproc.to_lowercase(df)
 df = preproc.assign_and_range_pages(df)
 df = preproc.delete_unecessary_columns(df)
 df = preproc.delete_duplicate_disciplines(df)
+df_const = df
 
 # Update labels of stacked bar chart
 stackedbar_default_options = [
@@ -432,7 +433,7 @@ def update_radio_buttons(dropdown_value):
     Input("radio-value", "value"),
 )
 def update_overview_content(dropdown_value, radio_value):
-    filtered_df = df
+    filtered_df = df_const
     context_title =""
   
     if dropdown_value == "domaine":
@@ -502,7 +503,7 @@ def update_radio_buttons_maitrise_doctorat(dropdown_value):
     Input("radio-value-maitrise-doctorat", "value"),
 )
 def update_maitrise_doctorat_content(dropdown_value, radio_value):
-    
+    df = df_const
     context_title = ""
     filtered_df_maitrise = df[df['grade'] == 'maîtrise']
     filtered_df_doctorat = df[df['grade'] == 'doctorat']

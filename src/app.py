@@ -165,31 +165,28 @@ def render_page_content(pathname):
             className="home-content",
             children=[
                 html.H1(
-                    "Tracer les horizons du savoir : Un parcours visuel de la recherche supérieure au Québec"),
-                
-                html.H3("Les universités du Québec sont devenues des pôles d'excellence académique renommés, attirant un large éventail d'étudiants du monde entier. Notre projet s'efforce d'explorer visuellement la riche mosaïque de thèses et de mémoires produits au sein de ces institutions. En analysant les tendances et les changements au cours temps, nous visons à découvrir des informations précieuses sur le paysage des études supérieures.Le tableau de bord du projet fournit des informations sur la répartition des diplômes, les affiliations universitaires et les modèles disciplinaires de 2000 à 2022. Nos utilisateurs cibles comprennent les chercheurs, les administrateurs universitaires, les bibliothèques, les institutions de financement, les chercheurs consultants, publications académiques, étudiants diplômés, futurs étudiants et grand public. En acquérant une meilleure compréhension du paysage de la recherche, les utilisateurs peuvent prendre des décisions éclairées, suivre les tendances émergentes et contribuer à l'avancement des connaissances dans la communauté universitaire québécoise.") ,
-                 
-                html.H3(
-                    "Instructions", className="instructions"),
+                    "Tracer les horizons du savoir : Un parcours visuel de la recherche supérieure au Québec", 
+                    className="title"),
+                html.H2(
+                    "Quebec's universities have become renowned hubs of academic excellence, attracting a " \
+                    "diverse array of students from around the world. Our project endeavors to visually explore " \
+                    "the rich tapestry of theses and dissertations produced within these institutions. By analyzing " \
+                    "trends and changes over time, we aim to uncover valuable insights into the landscape of graduate " \
+                    "studies. The project's dashboard provides information on degree distributions, university affiliations, " \
+                    "and disciplinary patterns from 2000 to 2022. Our target users include researchers, university " \
+                    "administrators, libraries, funding institutions, research consultants, academic publications, " \
+                    "graduate students, prospective students, and the general public. By gaining a deeper understanding " \
+                    "of the research landscape, users can make informed decisions, track emerging trends, and contribute " \
+                    "to the advancement of knowledge in Quebec's academic community.", 
+                    className="text"),
+                html.H2(
+                    "Instructions", className="section-title"),
                 html.P(
-                    "1. Cliquez sur Stacked Area Chart pour voir combien chaque université a contribué au domaine de recherche entre 2000 et 2022, les changements dans le nombre de thèses et de mémoires au cours de cette période, ainsi que les changements dans la répartition de l'anglais et du français pour la rédaction de thèses et de mémoires et le top 5 des disciplines pour chaque domaine universitaire et la langue utilisée au fil des années."),
+                    "1. Click on the 'Go to About Page' link to navigate to the About page.",
+                    className="text"),
                 html.P(
-                    "2. Cliquez sur Stacked Bar Chart pour voir si une langue particulière a été préférée dans une discipline donnée, et s'il y a une corrélation entre le nombre de pages et la discipline, et pour visualiser quelles universités ont fait le plus de contributions dans chacune discipline et domaine principal."),
-                html.P(
-                 "3. Cliquez sur Radar Chart pour voir quelles universités contribuent le plus grand nombre de thèses et mémoires, et quelles sont les 10 principales disciplines représentées dans les thèses et mémoires"
-                ), 
-               html.P(
-                 "4. Cliquez sur Sunburst Chart pour voir si la langue des textes varie selon qu'ils sont dans différents grands domaines et différentes universités, le nombre de thèses et mémoires répartis entre disciplines et grands domaines, et quelles universités ont le plus contribué dans chaque discipline et domaine majeur."
-                ),
-               html.P(
-                 "5. Cliquez sur Back to Back Bar Chart pour visualiser la répartition du français et de l'anglais pour les masters et doctorats."
-                ),
-               html.P(
-                 "6. Cliquez sur Box Plot pour visualiser si la longueur des documents a changé au fil du temps ou pour la maîtrise vs le doctorat."
-                ),
-
-
-
+                    "2. On the About page, click on the 'Go to Home Page' link to return to the Home page.",
+                    className="text"),
             ]
         )
     elif pathname == "/stacked-area":

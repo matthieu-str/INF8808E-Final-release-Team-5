@@ -2,19 +2,19 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from hover_template import get_hover_sunburst_chart_langue, get_hover_sunburst_chart_univ
-from preprocess import rename_inclassable
+
 
 def sunburst(df, mode):
-    df=rename_inclassable(df)
-    df['langue_new'] = df['langue'].str.lower().map({'fr': 'fr', 'en': 'en'}).fillna('autres langues')
+    df_sun = df
+    df_sun['langue_new'] = df_sun['langue'].str.lower().map({'fr': 'fr', 'en': 'en'}).fillna('autres langues')
     language_map = {"fr": "français", "en": "anglais", "autres langues": "autres langues"}
-    df['langue_new'] = df['langue_new'].map(language_map)
+    df_sun['langue_new'] = df_sun['langue_new'].map(language_map)
     # df = df[~df['domaine'].isin(['inclassable'])]
-    df = df[~df['langue_new'].isin(['autres langues'])]
-    df_domain_languages = df.groupby(["domaine", "langue_new"], as_index=False).count()[
+    df_sun = df_sun[~df_sun['langue_new'].isin(['autres langues'])]
+    df_domain_languages = df_sun.groupby(["domaine", "langue_new"], as_index=False).count()[
         ["domaine", "langue_new", "grade"]]
     df_domain_languages.rename(columns={"grade": "count"}, inplace=True)
-    df_domain_uni = df.groupby(["domaine", "univ"], as_index=False).count()[["domaine", "univ", "grade"]]
+    df_domain_uni = df_sun.groupby(["domaine", "univ"], as_index=False).count()[["domaine", "univ", "grade"]]
     df_domain_uni.rename(columns={"grade": "count"}, inplace=True)
     # df_uni_grouped = df_domain_uni.groupby('domaine').apply(lambda x: x.nlargest(10, 'count')).reset_index(drop=True)
     # df_uni_others = df_domain_uni[~df_domain_uni.index.isin(df_uni_grouped.index)]

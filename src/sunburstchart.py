@@ -232,6 +232,6 @@ def sunburst(df, mode):
                           )
         fig.update_traces(
             hovertemplate=get_hover_sunburst_chart_univ(),
-            leaf=dict(opacity=1)
+            leaf=dict(opacity=1),
         )
     return fig

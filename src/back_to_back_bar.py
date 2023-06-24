@@ -28,26 +28,26 @@ def distribution_language(df,grade,doc):
     y=categories,
     x=en_pop,
     orientation='h',
-    name='English',
-    marker_color='purple',
-    hovertext=[f'{cat} <br>  No. of {doc} = {pop} <br>  Percentage of Thesis = {freq}%'  for pop, cat,freq in zip(en_pop,categories,freq_en)],
+    name='Anglais',
+    marker_color='',
+    hovertext=[f'{cat} <br>  No. de {doc} = {pop} <br>  Pourcentage de {doc} = {freq}%'  for pop, cat,freq in zip(en_pop,categories,freq_en)],
     hovertemplate='%{hovertext}<extra></extra>'
 ))
   fig.add_trace(go.Bar(
     y=categories,
     x=[-pop for pop in fr_pop],
     orientation='h',
-    name='French',
-    marker_color='green',
-    hovertext=[f'{cat} <br>  No. of {doc} = {pop} <br>  Percentage of Thesis = {freq}%'  for pop, cat,freq in zip(fr_pop,categories,freq_fr)],
+    name='Français',
+    marker_color='',
+    hovertext=[f'{cat} <br>  No. de {doc} = {pop} <br>  Pourcentage de {doc} = {freq}%'  for pop, cat,freq in zip(fr_pop,categories,freq_fr)],
     hovertemplate='%{hovertext}<extra></extra>'
 ))
   fig.update_layout(
     height=700,
     barmode='relative',
-    title='Distribution of English And French for ' + doc,
+    title='Répartition de l'anglais et du français pour les ' + doc,
     xaxis=dict(
-        title='Nombre de thèses',
+        title='Nombre de ' {doc},
         tickvals= tick_values,
         ticktext=[abs(val) for val in tick_values]
     ),
@@ -59,9 +59,9 @@ def distribution_language(df,grade,doc):
 
 def back_to_back(df,grade):
   if (grade == 'doctorat'):
-    fig = distribution_language(df,'doctorat', 'Thesis')
+    fig = distribution_language(df,'doctorat', 'Thèses')
   else:
-    fig = distribution_language(df,'maîtrise', 'Dissertation')
+    fig = distribution_language(df,'maîtrise', 'Dissertations')
   return fig  
     
 

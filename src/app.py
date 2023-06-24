@@ -308,7 +308,7 @@ def render_page_content(pathname):
                     value="tab-master",
                     children=[
                         dcc.Graph(
-                            id='btb-graph-master',
+                            id='btb-graph',
                             figure=back_to_back(df,'maîtrise')
                         ),
                     ],
@@ -318,7 +318,7 @@ def render_page_content(pathname):
                     value="tab-phd",
                     children=[
                         dcc.Graph(
-                            id='btb-graph-phd',
+                            id='btb-graph',
                             figure= back_to_back(df, 'doctorat')
                         ),
                     ],

@@ -295,7 +295,7 @@ def render_page_content(pathname):
             value="tab-master",
             children=[
                 dcc.Tab(
-                    label="Distribution of English and French for Dissertation",
+                    label="Distribution de l'anglais et du français pour la dissertation",
                     value="tab-master",
                     children=[
                         dcc.Graph(
@@ -305,7 +305,7 @@ def render_page_content(pathname):
                     ],
                 ),
                 dcc.Tab(
-                    label="Distribution of English and French for Thesis",
+                    label="Distribution de l'anglais et du français pour les thèses",
                     value="tab-phd",
                     children=[
                         dcc.Graph(

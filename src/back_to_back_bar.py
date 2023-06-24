@@ -45,7 +45,7 @@ def distribution_language(df,grade,doc):
   fig.update_layout(
     height=700,
     barmode='relative',
-    title='Répartition de l'anglais et du français pour les ' + doc,
+    title="Répartition de l'anglais et du français pour les " + doc,
     xaxis=dict(
         title='Nombre de ' {doc},
         tickvals= tick_values,

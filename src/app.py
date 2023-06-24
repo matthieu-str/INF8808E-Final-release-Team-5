@@ -176,9 +176,24 @@ def render_page_content(pathname):
                 html.H2(
                     "Instructions", className="instructions"),
                 html.P(
-                    "1. Click on the 'Go to About Page' link to navigate to the About page."),
+                    "1. Cliquez sur Stacked Area Chart pour voir combien chaque université a contribué au domaine de recherche entre 2000 et 2022, les changements dans le nombre de thèses et de mémoires au cours de cette période, ainsi que les changements dans la répartition de l'anglais et du français pour la rédaction de thèses et de mémoires et le top 5 des disciplines pour chaque domaine universitaire et la langue utilisée au fil des années."),
                 html.P(
-                    "2. On the About page, click on the 'Go to Home Page' link to return to the Home page."),
+                    "2. Cliquez sur Stacked Bar Chart pour voir si une langue particulière a été préférée dans une discipline donnée, et s'il y a une corrélation entre le nombre de pages et la discipline, et pour visualiser quelles universités ont fait le plus de contributions dans chacune discipline et domaine principal."),
+                html.P(
+                 "3. Cliquez sur Radar Chart pour voir quelles universités contribuent le plus grand nombre de thèses et mémoires, et quelles sont les 10 principales disciplines représentées dans les thèses et mémoires"
+                ), 
+               html.P(
+                 "4. Cliquez sur Sunburst Chart pour voir si la langue des textes varie selon qu'ils sont dans différents grands domaines et différentes universités, le nombre de thèses et mémoires répartis entre disciplines et grands domaines, et quelles universités ont le plus contribué dans chaque discipline et domaine majeur."
+                ),
+               html.P(
+                 "5. Cliquez sur Back to Back Bar Chart pour visualiser la répartition du français et de l'anglais pour les masters et doctorats."
+                ),
+               html.P(
+                 "6. Cliquez sur Box Plot pour visualiser si la longueur des documents a changé au fil du temps ou pour la maîtrise vs le doctorat."
+                ),
+
+
+
             ]
         )
     elif pathname == "/stacked-area":

@@ -17,9 +17,7 @@ import stacked_area_chart
 from back_to_back_bar import back_to_back, distribution_language
 from sunburstchart import sunburst
 from radar_chart import init_figure, update_graph
-import flask
 
-server = flask.Flask(__name__)
 
 # Load the dataset
 df = pd.read_csv("assets/data/thesesMemoiresQC2000-2022-v20230508-1.csv", na_values="?")
@@ -42,7 +40,7 @@ stacked_bar_down_options = [
                     ]
 
 # Create the Dash app
-app = dash.Dash(__name__, server=server)
+app = dash.Dash(__name__)
 
 # Navbar
 navbar = html.Nav(
@@ -112,8 +110,12 @@ footer = html.Footer(
 )
 
 # App layout
+
+image_path = "assets/header.jpg"
+
 def welcome_page():
     return html.Div(className='welcome-page-container', children=[
+        html.Img(className='header-img', src=image_path),
         html.Div(className='content', children=[
             html.Div(className='welcome-title', children=[
                 'Postgraduate studies in Quebec universities between 2000 and 2022'
@@ -163,22 +165,21 @@ def render_page_content(pathname):
         return html.Div(
             className="home-content",
             children=[
-                html.H1("Tracer les horizons du savoir : Un parcours visuel de la recherche supérieure au Québec"),
-                html.P("This is a sample home page created using Dash."),
-                html.H2("Quebec's universities have become renowned hubs of academic excellence, attracting a diverse array of students from around the world. Our project endeavors to visually explore the rich tapestry of theses and dissertations produced within these institutions. By analyzing trends and changes over time, we aim to uncover valuable insights into the landscape of graduate studies. The project's dashboard provides information on degree distributions, university affiliations, and disciplinary patterns from 2000 to 2022. Our target users include researchers, university administrators, libraries, funding institutions, research consultants, academic publications, graduate students, prospective students, and the general public. By gaining a deeper understanding of the research landscape, users can make informed decisions, track emerging trends, and contribute to the advancement of knowledge in Quebec's academic community."),
+                html.H1(
+                    "Tracer les horizons du savoir : Un parcours visuel de la recherche supérieure au Québec"),
                 html.P(
-                    "This is a simple web application built with Dash. "
-                    "It demonstrates how to create multiple pages and navigate between them."
-                ),
-                html.H2("Instructions"),
+                    "This is a sample home page created using Dash."),
+                html.H2(
+                    "Quebec's universities have become renowned hubs of academic excellence, attracting a diverse array of students from around the world. Our project endeavors to visually explore the rich tapestry of theses and dissertations produced within these institutions. By analyzing trends and changes over time, we aim to uncover valuable insights into the landscape of graduate studies. The project's dashboard provides information on degree distributions, university affiliations, and disciplinary patterns from 2000 to 2022. Our target users include researchers, university administrators, libraries, funding institutions, research consultants, academic publications, graduate students, prospective students, and the general public. By gaining a deeper understanding of the research landscape, users can make informed decisions, track emerging trends, and contribute to the advancement of knowledge in Quebec's academic community."),
                 html.P(
-                    "1. Click on the 'Go to About Page' link to navigate to the About page."
-                ),
+                    "This is a simple web application built with Dash. It demonstrates how to create multiple pages and navigate between them."),
+                html.H2(
+                    "Instructions", className="instructions"),
                 html.P(
-                    "2. On the About page, click on the 'Go to Home Page' link to return to the Home page."
-                ),
-            ],          
-            style={"text-align": "center", "margin-top": "50px"}
+                    "1. Click on the 'Go to About Page' link to navigate to the About page."),
+                html.P(
+                    "2. On the About page, click on the 'Go to Home Page' link to return to the Home page."),
+            ]
         )
     elif pathname == "/stacked-area":
         return html.Div(
@@ -294,7 +295,7 @@ def render_page_content(pathname):
             value="tab-master",
             children=[
                 dcc.Tab(
-                    label="Répartition de l'anglais et du français pour les Dissertations",
+                    label="Distribution of English and French for Dissertation",
                     value="tab-master",
                     children=[
                         dcc.Graph(
@@ -304,7 +305,7 @@ def render_page_content(pathname):
                     ],
                 ),
                 dcc.Tab(
-                    label="Répartition de l'anglais et du français pour les Thèses",
+                    label="Distribution of English and French for Thesis",
                     value="tab-phd",
                     children=[
                         dcc.Graph(
@@ -595,4 +596,4 @@ def update_radar_chart(n_clicks, dropdown_univ_discipline_value):
         return figure
     else:
         default_figure = init_figure()
-        return default_figure       
+        return default_figure    

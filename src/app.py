@@ -111,11 +111,10 @@ footer = html.Footer(
 
 # App layout
 
-image_path = "assets/header.jpg"
+#image_path = "assets/header.jpg"
 
 def welcome_page():
     return html.Div(className='welcome-page-container', children=[
-        html.Img(className='header-img', src=image_path),
         html.Div(className='content', children=[
             html.Div(className='welcome-title', children=[
                 'Postgraduate studies in Quebec universities between 2000 and 2022'

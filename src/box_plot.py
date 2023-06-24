@@ -6,7 +6,7 @@ import plotly.colors
 
 def overview_box_plot(filtered_df, context_title):
 
-    text =  "Diagramme en Boîte du Nombre de Pages par Année"
+    text =  "Diagramme en Boîte du nombre de pages par année"
     title_text = text + context_title
     fig = px.box(filtered_df, x="année", y="pages")
     color_palette = ["rgb(0, 0, 0)"] + plotly.colors.sequential.Viridis
@@ -29,7 +29,7 @@ def overview_box_plot(filtered_df, context_title):
 
 def mvd_box_plot(filtered_df_maitrise, filtered_df_doctorat, context_title):
     
-    text = "Comparaison du Nombre de Pages par Année à la Maîtrise et au Doctorat"
+    text = "Comparaison du nombre de pages par année à la Maîtrise et au Doctorat"
     title_text = text + context_title
     
     fig = go.Figure()

@@ -110,17 +110,32 @@ footer = html.Footer(
 )
 
 # App layout
+
+image_path = "assets/header.jpg"
+
+def welcome_page():
+    return html.Div(className='welcome-page-container', children=[
+        html.Img(className='header-img', src=image_path),
+        html.Div(className='content', children=[
+            html.Div(className='welcome-title', children=[
+                'Postgraduate studies in Quebec universities between 2000 and 2022'
+            ])
+        ]),
+    ])
+
+
 app.layout = html.Div(
     className="app-container",
     children=[
         dcc.Location(id="url", refresh=False),
-        html.Header(navbar),
+        html.Header([
+            welcome_page(),  
+            navbar,
+        ]),
         html.Div(id="page-content"),
         footer,
     ],
-    #style={"position": "relative", "min-height": "100vh"},
 )
-
 
 #for css in external_css:
     #app.css.append_css({"external_url": css})
@@ -150,7 +165,7 @@ def render_page_content(pathname):
         return html.Div(
             className="home-content",
             children=[
-                html.H1("Tracer les horizons du savoir : Un parcours visuel de la diversité des recherches au Québec"),
+                html.H1("Tracer les horizons du savoir : Un parcours visuel de la recherche supérieure au Québec"),
                 html.P("This is a sample home page created using Dash."),
                 html.H2("Quebec's universities have become renowned hubs of academic excellence, attracting a diverse array of students from around the world. Our project endeavors to visually explore the rich tapestry of theses and dissertations produced within these institutions. By analyzing trends and changes over time, we aim to uncover valuable insights into the landscape of graduate studies. The project's dashboard provides information on degree distributions, university affiliations, and disciplinary patterns from 2000 to 2022. Our target users include researchers, university administrators, libraries, funding institutions, research consultants, academic publications, graduate students, prospective students, and the general public. By gaining a deeper understanding of the research landscape, users can make informed decisions, track emerging trends, and contribute to the advancement of knowledge in Quebec's academic community."),
                 html.P(

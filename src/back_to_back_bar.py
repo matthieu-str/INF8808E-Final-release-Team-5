@@ -43,15 +43,16 @@ def distribution_language(df,grade,doc):
     hovertemplate='%{hovertext}<extra></extra>'
 ))
   fig.update_layout(
+    height=700,
     barmode='relative',
     title='Distribution of English And French for ' + doc,
     xaxis=dict(
-        title='',
+        title='Nombre de thèses',
         tickvals= tick_values,
         ticktext=[abs(val) for val in tick_values]
     ),
     yaxis=dict(
-        title=None
+        title="Année"
     )
 )
   return fig

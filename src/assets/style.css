@@ -137,3 +137,11 @@ object-fit: cover;
   margin-bottom: 10px;
   line-height: 1.5;
 }
+
+.stacked-bar-content {
+  padding-bottom: 30px;
+}
+
+.stacked-area-content {
+  padding-bottom: 30px;
+}

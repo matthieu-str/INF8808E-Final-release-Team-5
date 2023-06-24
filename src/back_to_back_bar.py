@@ -49,7 +49,8 @@ def distribution_language(df,grade,doc):
     xaxis=dict(
         title='Nombre de ' {doc},
         tickvals= tick_values,
-        ticktext=[abs(val) for val in tick_values]
+        ticktext=[abs(val) for val in tick_values],
+        range=[-max(en_pop + fr_pop), max(en_pop + fr_pop)]
     ),
     yaxis=dict(
         title="Année"

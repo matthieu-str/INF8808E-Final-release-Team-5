@@ -235,7 +235,7 @@ def render_page_content(pathname):
                                            {'label': 'Pourcentage', 'value': 'percentage'}],
                                   value=['count']),  # initial value for stacked-area-checkbox-2
                             ], style=dict(display='flex')),
-                    html.Button('Cliquez ici', id="button"),
+                    html.Button('Sélectionnez puis Cliquez ici', id="button"),
                     ]),
                 html.Main(className='viz-container', children=[
                     dcc.Graph(id='stacked_area_chart', className='graph')
@@ -258,7 +258,7 @@ def render_page_content(pathname):
                     options= stacked_bar_down_options,
                     value=['univ']  # Set initial value for checkbox-2
                 )], style=dict(display='flex')),
-                html.Button('Cliquez ici', id="button")
+                html.Button('Sélectionnez puis Cliquez ici', id="button")
             ]),
             html.Main(className='viz-container', children=[
                 dcc.Graph(id='stacked_bar', className='graph')

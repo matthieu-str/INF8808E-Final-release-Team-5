@@ -33,7 +33,7 @@ def get_figure(data, colored, domaine):
              barmode='stack')
     fig.update_traces(hovertemplate=get_hover_stacked_bar_chart())
     # Update the x-axis label using plotly graph object
-    fig.update_xaxes(title_text="Number of publications")
+    fig.update_xaxes(title_text="Nombre de publications")
     # Update the y-axis label using plotly graph object
     fig.update_yaxes(title_text="Discipline")
     # Size of figure

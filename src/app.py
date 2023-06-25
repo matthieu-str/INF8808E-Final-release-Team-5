@@ -166,29 +166,53 @@ def render_page_content(pathname):
             className="home-content",
             children=[
                 html.H1(
-                    "Tracer les horizons du savoir : Un parcours visuel de la recherche en études supérieures au Québec"),
+                    "Tracer les horizons du savoir : Un parcours visuel de la recherche en études supérieures au Québec",
+                    className="title"
+                ),
                 html.P(
-                    "PROJET INF8808 - 2022/2023"),
+                    "PROJET INF8808E - 2023",
+                    className="subtitle"
+                ),
                 html.H2(
-                    "Les universités québécoises sont devenues des établissements réputés pour leur excellence académique, attirant un large éventail d'étudiants du monde entier. Notre projet vise à explorer visuellement la riche tapisserie des thèses et mémoires produits au sein de ces institutions. En analysant les tendances et les changements au fil du temps, nous visons à découvrir des informations précieuses sur le domaine des études supérieures. Le tableau de bord du projet fournit des informations sur la répartition des diplômes, les affiliations universitaires et les tendances disciplinaires de 2000 à 2022. Nos utilisateurs cibles sont les chercheurs, les administrateurs d'université, les bibliothèques, les institutions de financement, les consultants en recherche, les publications universitaires, les étudiants diplômés, les futurs étudiants et le grand public. En acquérant une meilleure compréhension du milieu de la recherche, les utilisateurs peuvent prendre des décisions éclairées, suivre les tendances émergentes et contribuer à l'avancement des connaissances au sein de la communauté universitaire québécoise."),
+                    "Les universités québécoises sont devenues des établissements réputés pour leur excellence académique, attirant un large éventail d'étudiants du monde entier. Notre projet vise à explorer visuellement la riche tapisserie des thèses et mémoires produits au sein de ces institutions. En analysant les tendances et les changements au fil du temps, nous visons à découvrir des informations précieuses sur le domaine des études supérieures. Le tableau de bord du projet fournit des informations sur la répartition des diplômes, les affiliations universitaires et les tendances disciplinaires de 2000 à 2022. Nos utilisateurs cibles sont les chercheurs, les administrateurs d'université, les bibliothèques, les institutions de financement, les consultants en recherche, les publications universitaires, les étudiants diplômés, les futurs étudiants et le grand public. En acquérant une meilleure compréhension du milieu de la recherche, les utilisateurs peuvent prendre des décisions éclairées, suivre les tendances émergentes et contribuer à l'avancement des connaissances au sein de la communauté universitaire québécoise.",
+                    className="section-text"
+                ),
                 html.P(
-                    "Les visualisations réalisées peuvent être classées en deux sections, la première étant consacrée aux tendances temporelles de l'évolution des publications au fil des ans et la seconde à la présentation de la répartition du nombre de publications à un niveau plus granulaire. Pour plus d'informations, lisez les sections ci-dessous."),
+                    "Les visualisations réalisées peuvent être classées en deux sections, la première étant consacrée aux tendances temporelles de l'évolution des publications au fil des ans et la seconde à la présentation de la répartition du nombre de publications à un niveau plus granulaire. Pour plus d'informations, lisez les sections ci-dessous.",
+                    className="section-text"
+                ),
                 html.H2(
-                    "Section 1", className="Section 1"),
+                    "Section 1",
+                    className="section-title"
+                ),
                 html.P(
-                    "Stacked Area chart : affiche les tendances temporelles du nombre de publications en fonction de variables majeures telles que les domaines, les universités, les langues et les niveaux d'études. Ces informations peuvent être affichées en mode pourcentage ou comptage."),
+                    "Stacked Area chart : affiche les tendances temporelles du nombre de publications en fonction de variables majeures telles que les domaines, les universités, les langues et les niveaux d'études. Ces informations peuvent être affichées en mode pourcentage ou comptage.",
+                    className="section-text"
+                ),
                 html.P(
-                    "Back to back chart : présente l'évolution de la répartition des langues entre les années et les diplômes ( maîtrise et doctorat) dans les universités québécoises entre 2000 et 2022."),
+                    "Back to back chart : présente l'évolution de la répartition des langues entre les années et les diplômes (maîtrise et doctorat) dans les universités québécoises entre 2000 et 2022.",
+                    className="section-text"
+                ),
                 html.P(
-                    "Box plot : montre l'évolution de la longueur des publications au fil des années en fonction des niveaux d'études, des domaines ou des langues."),
+                    "Box plot : montre l'évolution de la longueur des publications au fil des années en fonction des niveaux d'études, des domaines ou des langues.",
+                    className="section-text"
+                ),
                 html.H2(
-                    "Section 2", className="Section 2"),
+                    "Section 2",
+                    className="section-title"
+                ),
                 html.P(
-                    "Stacked bar chart : donne un aperçu de la répartition des langues, des diplômes, des universités ou même du nombre de pages dans les différentes disciplines qui ont été catégorisées en fonction du domaine principal."),
+                    "Stacked bar chart : donne un aperçu de la répartition des langues, des diplômes, des universités ou même du nombre de pages dans les différentes disciplines qui ont été catégorisées en fonction du domaine principal.",
+                    className="section-text"
+                ),
                 html.P(
-                    "Radar chart : présente des informations relatives aux différents types de diplômes ( Maîtrise et doctorat). Ces informations peuvent être visualisées sur différentes universités ou sur les plus importantes disciplines existantes."),
+                    "Radar chart : présente des informations relatives aux différents types de diplômes (Maîtrise et doctorat). Ces informations peuvent être visualisées sur différentes universités ou sur les plus importantes disciplines existantes.",
+                    className="section-text"
+                ),
                 html.P(
-                    "Sunburst chart : vise à montrer la répartition des langues des documents en fonction des domaines ou des universités."),
+                    "Sunburst chart : vise à montrer la répartition des langues des documents en fonction des domaines ou des universités.",
+                    className="section-text"
+                ),
             ]
         )
     elif pathname == "/stacked-area":
@@ -445,16 +469,16 @@ def update_overview_content(dropdown_value, radio_value):
                 context_title = " dans les programmes individualisés ou inconnus"
 
     elif dropdown_value == "langue":
-        context_title = " rédigés dans toutes les langues"
+        context_title = " rédigées dans toutes les langues"
         if radio_value == "fr":
             filtered_df = filtered_df[filtered_df["langue"] == "fr"]
-            context_title = " rédigés en Français"
+            context_title = " rédigées en Français"
         elif radio_value == "en":
             filtered_df = filtered_df[filtered_df["langue"] == "en"]
-            context_title = " rédigés en Anglais"
+            context_title = " rédigées en Anglais"
         elif radio_value == "others":
             filtered_df = filtered_df[df["langue"].isin(["es", "it", "de", "pt"])]
-            context_title = " rédigés dans les autres langues"
+            context_title = " rédigées dans les autres langues"
 
     fig = overview_box_plot(filtered_df, context_title)
 
@@ -530,7 +554,7 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
             if radio_value == "programme individualisé ou inconnu":
                 context_title = " dans les programmes individualisés ou inconnus"
     elif dropdown_value == "langue":
-        context_title = " rédigés dans toutes les langues"
+        context_title = " rédigées dans toutes les langues"
         if radio_value == "fr":
             filtered_df_maitrise = filtered_df_maitrise[
                 filtered_df_maitrise["langue"] == "fr"
@@ -538,7 +562,7 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
             filtered_df_doctorat = filtered_df_doctorat[
                 filtered_df_doctorat["langue"] == "fr"
             ]
-            context_title = " rédigés en Français"
+            context_title = " rédigées en Français"
         elif radio_value == "en":
             filtered_df_maitrise = filtered_df_maitrise[
                 filtered_df_maitrise["langue"] == "en"
@@ -546,7 +570,7 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
             filtered_df_doctorat = filtered_df_doctorat[
                 filtered_df_doctorat["langue"] == "en"
             ]
-            context_title = " rédigés en Anglais"
+            context_title = " rédigées en Anglais"
         elif radio_value == "others":
             filtered_df_maitrise = filtered_df_maitrise[
                 df["langue"].isin(["es", "it", "de", "pt"])
@@ -554,7 +578,7 @@ def update_maitrise_doctorat_content(dropdown_value, radio_value):
             filtered_df_doctorat = filtered_df_doctorat[
                 df["langue"].isin(["es", "it", "de", "pt"])
             ]
-            context_title = " rédigés dans les autres langues"
+            context_title = " rédigées dans les autres langues"
 
     fig = mvd_box_plot(filtered_df_maitrise, filtered_df_doctorat, context_title)
 

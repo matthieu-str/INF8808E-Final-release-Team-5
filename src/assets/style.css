@@ -145,3 +145,9 @@ object-fit: cover;
 .stacked-area-content {
   padding-bottom: 30px;
 }
+
+.section-text {
+  font-size: 18px;
+  font-weight: normal;
+  text-align: justify;
+}

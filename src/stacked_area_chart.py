@@ -60,19 +60,30 @@ def get_figure(df, y_axis, mode):
     fig.update_layout(legend_traceorder='reversed')
     fig.update_layout(height=600, width=1200)
     fig.update_xaxes(title_text="Année", title_font=dict(size=20))
+    fig.add_annotation(text=f'Evolution du nombre de publications par {titles[y_axis].lower()} en fonction du temps',
+                       # x = 0.95,
+                       y = 1.2,
+                       showarrow=False,
+                       font=dict(size=25),
+                       align='left',
+                       xref='paper',
+                       yref='paper')
+    fig.update_layout(margin=dict(t=100))
 
     if mode == 'count':
         fig.update_yaxes(title_text='')
         fig.update_layout(title=dict(text='Nombre de publications',
                                      xanchor='left',
                                      yanchor='top',
-                                     font=dict(size=20)))
+                                     font=dict(size=20),
+                                     y=0.88))
     elif mode == 'percentage':
         fig.update_yaxes(title_text='',
                          range=[0,100])
         fig.update_layout(title=dict(text='Pourcentage de publications [%]',
                                      xanchor='left',
                                      yanchor='top',
-                                     font=dict(size=20)))
+                                     font=dict(size=20),
+                                     y=0.88))
 
     return fig

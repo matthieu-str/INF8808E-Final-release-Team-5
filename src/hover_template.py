@@ -24,7 +24,7 @@ def get_hover_stacked_bar_chart():
 def get_hover_box_plot(name_text=None):
     if name_text is None: 
         return "Année: %{x}<br>Nombre de Pages: %{y}<extra></extra>"
-    return "Année: %{x}<br>Nombre de Pages: %{y}<br>Grade: "+ name_text + "<extra></extra>"
+    return "Année: %{x}<br>Nombre de Pages: %{y}<br>Niveau d'études: "+ name_text + "<extra></extra>"
 
 def get_hover_sunburst_chart_langue():
     hover_temp = "<b>%{label}</b><br><b>Nombre de publications:</b> %{value}<extra></extra>"

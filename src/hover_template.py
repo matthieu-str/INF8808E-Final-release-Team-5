@@ -27,8 +27,9 @@ def get_hover_box_plot(name_text=None):
     return "Année: %{x}<br>Nombre de Pages: %{y}<br>Niveau d'études: "+ name_text + "<extra></extra>"
 
 def get_hover_sunburst_chart_langue():
-    hover_temp = "<b>%{label}</b><br><b>Nombre de publications:</b> %{value}<extra></extra>"
+    hover_temp = "<b>Étiquette:</b> %{label}<br><b>Nombre de publications:</b> %{value}<extra></extra>"
     return hover_temp
+
 def get_hover_sunburst_chart_univ():
-    hover_temp = "<b>%{label}</b><br><b>Nombre de publications:</b> %{value}<extra></extra>"
+    hover_temp = "<b>Étiquette:</b> %{label}<br><b>Nombre de publications:</b> %{value}<extra></extra>"
     return hover_temp

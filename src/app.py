@@ -244,7 +244,7 @@ def render_page_content(pathname):
     elif pathname == "/stacked-bar":
         return html.Div(className="stacked-bar-content", children=[
             html.Header(children=[
-                html.Div([ html.Label("Domaine: ", style=dict(fontWeight='bold')), 
+                html.Div([ html.Label("Domaine : ", style=dict(fontWeight='bold')), 
                 dcc.RadioItems(
                     id='checkbox-1',
                     options=stackedbar_default_options,
@@ -252,7 +252,7 @@ def render_page_content(pathname):
                 ),
                  ], style=dict(display='flex')
                  ),
-                html.Div([ html.Label("Variable: ", style=dict(fontWeight='bold')), 
+                html.Div([ html.Label("Publications par : ", style=dict(fontWeight='bold')), 
                 dcc.RadioItems(
                     id='checkbox-2',
                     options= stacked_bar_down_options,

@@ -35,14 +35,14 @@ def get_figure(data, colored, domaine):
     # Update the x-axis label using plotly graph object
     fig.update_xaxes(title_text="Nombre de publications",title_font=dict(size=20))
     # Update the y-axis label using plotly graph object
-    # Update the layout to remove the y-axis label
     fig.update_layout(yaxis_title="")
+    # Update the layout to remove the y-axis label
     fig.update_layout(title=dict(text='Discipline',
                                      x=0.15,
                                      y=0.92,
                                      xanchor='left',
                                      yanchor='top',
                                      font=dict(size=20)))
-    # Size of figure
+    # Size and title of figure
     fig.update_layout(height=900, width=900, legend_title='Catégories '+Variable_options[colored])
     return fig

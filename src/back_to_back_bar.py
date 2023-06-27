@@ -45,18 +45,16 @@ def distribution_language(df,grade,doc):
     x=en_pop,
     orientation='h',
     name='Anglais',
-    #marker_color='blue',
-    hovertext=[f'{cat} <br>  No. de {doc} = {pop} <br>  Pourcentage de {doc} = {freq}%'  for pop, cat,freq in zip(en_pop,categories,freq_en)],
-    hovertemplate='%{hovertext}<extra></extra>'
+    hovertemplate= [generate_hover_template_btb(cat, pop, doc, freq) for cat, pop, freq in zip(categories, en_pop, freq_en)]
+
 ))
   fig.add_trace(go.Bar(
     y=categories,
     x=[-pop for pop in fr_pop],
     orientation='h',
     name='Français',
-    #marker_color='Red',
-    hovertext=[f'{cat} <br>  No. de {doc} = {pop} <br>  Pourcentage de {doc} = {freq}%'  for pop, cat,freq in zip(fr_pop,categories,freq_fr)],
-    hovertemplate='%{hovertext}<extra></extra>'
+    hovertemplate= [generate_hover_template_btb(cat, pop, doc, freq) for cat, pop, freq in zip(categories, fr_pop, freq_fr)]
+
 ))
   fig.update_layout(
     height=700,

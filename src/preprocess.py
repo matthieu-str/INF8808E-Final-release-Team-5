@@ -1,10 +1,12 @@
 import pandas as pd
+
 def to_lowercase(df):
     # putting every str column in lowercase
     str_columns = ["nom", "prénom", "titre", "discipline", "domaine", "langue", "grade"]
     for col in str_columns:
         df[col] = df[col].str.lower()
     return df
+    
 def delete_unecessary_columns(df):
     df = df.drop(columns=['titre', 'nom','prénom','url','source'])
     return df
@@ -21,7 +23,6 @@ def assign_and_range_pages(df):
             return '[501-2035] pages'
         else: 
             return '0'
-    
     df['range of pages'] = df['pages'].apply(assign_page_range)
     return df
 

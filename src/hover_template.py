@@ -34,6 +34,5 @@ def get_hover_sunburst_chart_univ():
     hover_temp = "<b>Étiquette:</b> %{label}<br><b>Nombre de publications:</b> %{value}<extra></extra>"
     return hover_temp
 
-def generate_hover_template_btb(cat, pop, doc, freq):
-    return f'<span> <b>Année: </b>{cat}<br>  <b>No. de {doc} = </b>{pop}<br>  <b>Pourcentage de {doc} = </b>{freq}%</span>'
-
+def get_hover_back_to_back_chart(cat, pop, doc, freq):
+    return f'<span> <b> Année: </b>{cat}<br>  <b>No. de {doc} = </b>{pop}<br>  <b>Pourcentage de {doc} = </b>{freq}%</span>'

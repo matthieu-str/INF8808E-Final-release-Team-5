@@ -1,5 +1,8 @@
 import plotly.graph_objects as go
 from operator import add
+from hover_template import get_hover_back_to_back_chart
+
+
 def distribution_language(df,grade,doc):
   categories = df['année'].unique().tolist()
   data_en = df[(df['grade'] == grade) & (df['langue'].isin(['en']))]
@@ -45,7 +48,7 @@ def distribution_language(df,grade,doc):
     x=en_pop,
     orientation='h',
     name='Anglais',
-    hovertemplate= [generate_hover_template_btb(cat, pop, doc, freq) for cat, pop, freq in zip(categories, en_pop, freq_en)]
+    hovertemplate= [get_hover_back_to_back_chart(cat, pop, doc, freq) for cat, pop, freq in zip(categories, en_pop, freq_en)]
 
 ))
   fig.add_trace(go.Bar(
@@ -53,7 +56,7 @@ def distribution_language(df,grade,doc):
     x=[-pop for pop in fr_pop],
     orientation='h',
     name='Français',
-    hovertemplate= [generate_hover_template_btb(cat, pop, doc, freq) for cat, pop, freq in zip(categories, fr_pop, freq_fr)]
+    hovertemplate= [get_hover_back_to_back_chart(cat, pop, doc, freq) for cat, pop, freq in zip(categories, fr_pop, freq_fr)]
 
 ))
   fig.update_layout(

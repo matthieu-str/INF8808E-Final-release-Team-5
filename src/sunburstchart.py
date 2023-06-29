@@ -1,14 +1,20 @@
+'''
+Sunburst chart
+'''
+
 import plotly.graph_objects as go
-from hover_template import get_hover_sunburst_chart_langue, get_hover_sunburst_chart_univ
+from hover_template import get_hover_sunburst_chart_langue
+from hover_template import get_hover_sunburst_chart_univ
+
 
 def sunburst(df, mode):
     '''
-    This function displays the sunburst graph showing the distribution 
+    This function displays the sunburst graph showing the distribution
     of languages or universities in the main fields.
 
     Inputs :
     df : represents the data frame containing all the information.
-    mode : takes the university or language variable according to the factor 
+    mode : takes the university or language variable according to the factor
     whose distribution we want to see within the main field.
 
     output:
@@ -24,7 +30,6 @@ def sunburst(df, mode):
     df_domain_languages.rename(columns={"grade": "count"}, inplace=True)
     df_domain_uni = df_sun.groupby(["domaine", "univ"], as_index=False).count()[["domaine", "univ", "grade"]]
     df_domain_uni.rename(columns={"grade": "count"}, inplace=True)
-    
     if mode == 'langue':
         labels = []
         parents = []
@@ -60,7 +65,7 @@ def sunburst(df, mode):
         fig.update_layout(width=700, height=700,
                           title='La répartition des langues dans différents domaines',
                           annotations=[dict(
-                            text="Cliquez sur chaque partie de domaine pour voir plus de détails.",                  
+                            text="Cliquez sur chaque partie de domaine pour voir plus de détails.",
                             x=-0.05, y=1.05,
                             showarrow=False,
                             font=dict(size=12, color='black'),
@@ -71,7 +76,7 @@ def sunburst(df, mode):
                             showarrow=False,
                             font=dict(size=12, color='black'),
                             )]
-                         )
+                          )
         fig.update_traces(
             hovertemplate=get_hover_sunburst_chart_langue(),
             leaf=dict(opacity=1),
@@ -90,7 +95,6 @@ def sunburst(df, mode):
             labels.append(domain)
             parents.append('')
             values.append(domain_values)
-            
             for row in top5_children.itertuples():
                 labels.append(f"{domain}-{row.univ}")
                 parents.append(domain)
@@ -99,8 +103,6 @@ def sunburst(df, mode):
             labels.append(f"{domain}-Autres universités")
             parents.append(domain)
             values.append(other_count)
-
-
         fig = go.Figure()
         fig.add_trace(go.Sunburst(
             labels=labels,

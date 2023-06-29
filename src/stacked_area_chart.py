@@ -65,12 +65,12 @@ def get_figure(df, y_axis, mode):
     fig.update_traces(hovertemplate=get_hover_stacked_area_chart(mode))
     fig.update_layout(legend_traceorder='reversed')
     fig.update_layout(height=600, width=1200)
-    fig.update_xaxes(title_text="Année", title_font=dict(size=20))
+    fig.update_xaxes(title_text="Année", title_font=dict(size=15))
     fig.add_annotation(text=f'Evolution du nombre de publications par {titles[y_axis].lower()} en fonction du temps',
                        # x = 0.95,
                        y = 1.2,
                        showarrow=False,
-                       font=dict(size=25),
+                       font=dict(size=16),
                        align='left',
                        xref='paper',
                        yref='paper')
@@ -81,7 +81,7 @@ def get_figure(df, y_axis, mode):
         fig.update_layout(title=dict(text='Nombre de publications',
                                      xanchor='left',
                                      yanchor='top',
-                                     font=dict(size=20),
+                                     font=dict(size=15),
                                      y=0.88))
     elif mode == 'percentage':
         fig.update_yaxes(title_text='',
@@ -89,7 +89,7 @@ def get_figure(df, y_axis, mode):
         fig.update_layout(title=dict(text='Pourcentage de publications [%]',
                                      xanchor='left',
                                      yanchor='top',
-                                     font=dict(size=20),
+                                     font=dict(size=15),
                                      y=0.88))
     fig.update_traces(hoverlabel=dict(namelength=0))    
 

@@ -1,6 +1,4 @@
 import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -8,13 +6,11 @@ from dash.dependencies import Input, Output, State
 
 import preprocess as preproc
 from box_plot import overview_box_plot, mvd_box_plot
-import helper
 import callback
-import template
 from template import external_css
 import stacked_bar
 import stacked_area_chart
-from back_to_back_bar import back_to_back, distribution_language
+from back_to_back_bar import back_to_back
 from sunburstchart import sunburst
 from radar_chart import init_figure, update_graph
 
@@ -425,7 +421,7 @@ def render_page_content(pathname):
             ],
         )
 
-# Update radio buttons based on dropdown value
+# Update radio buttons based on dropdown value (box plot)
 @app.callback(
     Output("radio-container", "children"),
     Input("dropdown-value", "value"),
@@ -468,7 +464,7 @@ def update_radio_buttons(dropdown_value):
     else:
         return html.Div()
 
-# Update Overview tab content
+# Update Overview tab content (box plot)
 @app.callback(
     Output("overview-content", "children"),
     Input("dropdown-value", "value"),
@@ -503,7 +499,7 @@ def update_overview_content(dropdown_value, radio_value):
     return dcc.Graph(figure=fig)
 
 
-# Update radio buttons based on dropdown value for "Maîtrise vs Doctorat" tab
+# Update radio buttons based on dropdown value for "Maîtrise vs Doctorat" tab (box plot)
 @app.callback(
     Output("radio-container-maitrise-doctorat", "children"),
     Input("dropdown-value-maitrise-doctorat", "value"),
@@ -547,7 +543,7 @@ def update_radio_buttons_maitrise_doctorat(dropdown_value):
         return html.Div()
 
 
-# Update Maîtrise vs Doctorat tab content
+# Update Maîtrise vs Doctorat tab content (box plot)
 @app.callback(
     Output("maitrise-doctorat-content", "children"),
     Input("dropdown-value-maitrise-doctorat", "value"),

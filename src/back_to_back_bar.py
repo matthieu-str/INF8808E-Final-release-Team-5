@@ -96,7 +96,7 @@ def distribution_language(df,grade,doc):
                                      align='left',
                                      xref='paper',
                                      yref='paper',
-                                     font=dict(size=18))
+                                     font=dict(size=16))
     fig.update_traces(hoverlabel=dict(namelength=0))
     return fig
 

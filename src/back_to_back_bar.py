@@ -77,11 +77,11 @@ def distribution_language(df,grade,doc):
                                      xanchor='left',
                                      yanchor='top',
                                      font=dict(size=15),
-                                     x=0,
-                                     y=0.5))
+                                     x=0.02,
+                                     y=0.88))
     fig.add_annotation(text="Répartition de l'anglais et du français pour les " + doc,
                                      #x=0.15,
-                                     y=1.09,
+                                     y=1.1,
                                      showarrow=False,
                                      align='left',
                                      xref='paper',

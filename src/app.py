@@ -3,7 +3,6 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output, State
-
 import preprocess as preproc
 from box_plot import overview_box_plot, mvd_box_plot
 import callback
@@ -108,7 +107,6 @@ footer = html.Footer(
 )
 
 # App layout
-
 def welcome_page():
     return html.Div(className='welcome-page-container', children=[
         html.Div(className='content', children=[
@@ -131,6 +129,7 @@ app.layout = html.Div(
         footer,
     ],
 )
+
 # Apply the css style sheet
 app.css.external_stylesheets = external_css
 
@@ -147,7 +146,6 @@ app.css.external_stylesheets = external_css
 )
 def update_navlink_styles(pathname):
     return callback.update_navlink_styles(pathname)
-
 
 # Update page content based on URL pathname
 @app.callback(Output("page-content", "children"), Input("url", "pathname"))
@@ -650,7 +648,7 @@ def update_radar_chart(n_clicks, dropdown_univ_discipline_value):
     else:
         default_figure = init_figure(df)
         return default_figure 
-# back to back
+# Back to back
 @app.callback(
     Output('btb-graph', 'figure'),
     [Input('button', 'n_clicks')],

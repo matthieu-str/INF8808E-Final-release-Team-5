@@ -71,12 +71,12 @@ def get_figure(data, colored, domaine):
     # Update the title using the annotation, which is the only way
     # to display the y-axis horizontally with a title
     fig.add_annotation(text="Visualisation de la distribution "+Variable_options[colored]+" dans les disciplines du domaine "+domaine,
-                       y=1.09,
+                       y=1.075,
                        showarrow=False,
                        align='left',
                        xref='paper',
                        yref='paper',
-                       font=dict(size=18))
+                       font=dict(size=16))
     # Size and title of figure
     fig.update_layout(height=800, width=1200,
                       legend_title='Catégories '+Variable_options[colored])

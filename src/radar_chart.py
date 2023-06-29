@@ -46,7 +46,7 @@ def update_graph(mode):
             ),
             showlegend = True,
             title = f"Le nombre de grades de {x} et de {y} pour chaque université",
-            legend=dict(x=.8, y=1),  # Adjust position of the legend
+            legend=dict(x=.8, y=1, title=dict(text="Niveau d'études")),  # Adjust position of the legend
             annotations=[
                 dict(
                     text="Axe radial en échelle logarithmique",
@@ -95,7 +95,8 @@ def update_graph(mode):
                 )
             ),
             showlegend = True,
-            title = f"Les dix premières disciplines pour {x} and {y}"
+            title = f"Les dix premières disciplines pour {x} and {y}",
+            legend=dict(x=.8, y=1,title=dict(text="Niveau d'études"))
         )
 
     return {'data': data, 'layout': layout}

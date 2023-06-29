@@ -1,4 +1,10 @@
+'''
+
+Import libraries
+
+'''
 import pandas as pd
+
 
 def to_lowercase(df):
     '''
@@ -6,19 +12,23 @@ def to_lowercase(df):
     :param df: (pandas dataframe) data to process
     :return: processed dataframe
     '''
-    str_columns = ["nom", "prénom", "titre", "discipline", "domaine", "langue", "grade"]
+    str_columns = ["nom", "prénom", "titre", "discipline",
+                   "domaine", "langue", "grade"]
     for col in str_columns:
         df[col] = df[col].str.lower()
     return df
-    
+
+
 def delete_unecessary_columns(df):
     '''
-    Delete useless columns for the analysis, i.e., 'titre', 'nom', 'prénom', 'url' and 'source'
+    Delete useless columns for the analysis, i.e., 'titre', 'nom',
+    'prénom', 'url' and 'source'.
     :param df: (pandas dataframe) data to process
     :return: processed dataframe
     '''
-    df = df.drop(columns=['titre', 'nom','prénom','url','source'])
+    df = df.drop(columns=['titre', 'nom', 'prénom', 'url', 'source'])
     return df
+
 
 def assign_and_range_pages(df):
     '''
@@ -40,24 +50,26 @@ def assign_and_range_pages(df):
             return '[251-500] pages'
         elif pages <= 2035:
             return '[501-2035] pages'
-        else: 
+        else:
             return '0'
     df['range of pages'] = df['pages'].apply(assign_page_range)
     return df
 
+
 def delete_duplicate_disciplines(df):
     '''
-    Remove duplicate disciplines by creating a dictionary to store the disciplines and their corresponding domains
+    Remove duplicate disciplines by creating a dictionary to store
+    the disciplines and their corresponding domains.
     :param df: (pandas dataframe) data to process
     :return: processed dataframe
     '''
     discipline_domains = {}
-    idx1= df.columns.get_loc('discipline')
-    idx2= df.columns.get_loc('domaine')
+    idx1 = df.columns.get_loc('discipline')
+    idx2 = df.columns.get_loc('domaine')
     # Iterate over each row in the table
     for index, row in df.iterrows():
-        discipline = row[idx1]  # Assuming discipline is in the column (index 1)
-        domaine = row[idx2]  # Assuming domaine is in the column (index 2)
+        discipline = row[idx1]  # Assuming discipline is in the index 1
+        domaine = row[idx2]  # Assuming domaine is in the index 2
 
         # Check if the discipline already exists in the dictionary
         if discipline in discipline_domains:
@@ -71,11 +83,14 @@ def delete_duplicate_disciplines(df):
 
     return df
 
+
 def other_languages(df, grouped_by):
     '''
-    This function is gathering all the other languages than English and French into an "other" category
+    This function is gathering all the other languages than
+    English and French into an "other" category.
     :param df: (pandas dataframe) data to process
-    :param grouped_by: boolean variable telling whether the dataframe is grouped by or not
+    :param grouped_by: boolean variable telling whether
+    the dataframe is grouped by or not.
     :return: processed dataframe
     '''
     langues_other = ["de", "es", "it", "pt"]
@@ -107,20 +122,26 @@ def other_languages(df, grouped_by):
         df_copy.loc[df['langue'].str.contains(pattern_langues_other), 'langue'] = 'autres'
         return df_copy
 
+
 def get_top_univ(df_count, n):
     '''
-    Returns a list of the top 10 universities un terms of cumulated number of publications
-    :param df_count: (pandas dataframe) data to process, the dataframe has been "grouped by"
+    Returns a list of the top 10 universities un terms of
+    cumulated number of publications.
+    :param df_count: (pandas dataframe) data to process,
+    the dataframe has been "grouped by".
     :param n: (int) number of top to keep
     :return: (list<str>) list of str containing top 10 university names
     '''
     return list(df_count.groupby(by=['univ'], as_index=False).sum('count')[['univ', 'count']].sort_values(by='count', ascending=False).head(n)['univ'])
 
+
 def other_univ(df, grouped_by, top_univ):
     '''
-    Only keeps the top n universities and replace all other by an "other" category
-    :param df: (pandas dataframe) data to process
-    :param grouped_by: (bool) boolean variable telling whether the dataframe is grouped by
+    Only keeps the top n universities and replace all other
+    by an "other" category.
+    :param df: (pandas dataframe) data to process.
+    :param grouped_by: (bool) boolean variable telling whether
+    the dataframe is grouped by.
     :param top_univ: (list<str>) list of top n universities
     :return: the processed dataframe
     '''
@@ -151,15 +172,18 @@ def other_univ(df, grouped_by, top_univ):
         df_copy.loc[df['univ'].str.contains(pattern_univ_other), 'univ'] = 'Autres'
         return df_copy
 
+
 def rename_languages(df):
     '''
-    Rename languages for better readability ('fr' to 'français' and 'en' to 'english')
+    Rename languages for better readability ('fr' to 'français'
+    and 'en' to 'english')
     :param df: (pandas dataframe) data to process
     :return: processed dataframe
     '''
     df.langue.replace(to_replace='fr', value='français', inplace=True)
     df.langue.replace(to_replace='en', value='anglais', inplace=True)
     return df
+
 
 def rename_inclassable(df):
     '''
@@ -171,4 +195,3 @@ def rename_inclassable(df):
                        value='programme individualisé ou inconnu',
                        inplace=True)
     return df
-

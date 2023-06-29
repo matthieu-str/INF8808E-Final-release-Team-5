@@ -2,6 +2,7 @@ from preprocess import rename_languages
 from hover_template import get_hover_stacked_bar_chart
 import plotly.express as px
 
+# This variable is used to make a proper display of the title of figures 
 Variable_options = {'grade': "des niveaux d'études", 'univ': 'des universités', 'langue': 'des langues',
                     'range of pages': 'du nombre de pages'}
 

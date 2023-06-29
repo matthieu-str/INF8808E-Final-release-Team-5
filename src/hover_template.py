@@ -27,7 +27,7 @@ def get_hover_stacked_area_chart(mode):
 
 
 def get_hover_stacked_bar_chart():
-    hover_temp = 'Nombre de publications: %{x}<br>Discipline: %{y}'
+    hover_temp = '<b>Nombre de publications:</b> %{x}<br><b>Discipline:</b> %{y}'
     return hover_temp
 
 

@@ -17,7 +17,7 @@ from radar_chart import init_figure, update_graph
 # Create the Dash app
 app = dash.Dash(__name__)
 
-# Load the dataset
+# Load the dataset and perform preprocessing
 df = pd.read_csv("assets/data/thesesMemoiresQC2000-2022-v20230508-1.csv", na_values="?")
 df = preproc.to_lowercase(df)
 df = preproc.assign_and_range_pages(df)

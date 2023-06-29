@@ -12,10 +12,10 @@ def get_hover_discipline():
 
 def get_hover_stacked_area_chart(mode):
     if mode == 'count':
-        hover_temp = '<b>Année:</b> %{x}<br><b>Nombre de publications:</b> %{y}<br><b>Les 5 disciplines les plus importantes:</b> %{customdata[0]}'
+        hover_temp = '<b>%{customdata[1]}</b><br><b>Année:</b> %{x}<br><b>Nombre de publications:</b> %{y}<br><b>Les 5 disciplines les plus importantes:</b> %{customdata[0]}'
         return hover_temp
     else:
-        hover_temp = '<b>Année:</b> %{x}<br><b>Pourc. de publications:</b> %{y}%<br><b>Les 5 disciplines les plus importantes:</b> %{customdata[0]}'
+        hover_temp = '<b>%{customdata[1]}</b><br><b>Année:</b> %{x}<br><br><b>Pourc. de publications:</b> %{y}%<br><b>Les 5 disciplines les plus importantes:</b> %{customdata[0]}'
         return hover_temp
 
 def get_hover_stacked_bar_chart(): 
@@ -35,5 +35,6 @@ def get_hover_sunburst_chart_univ():
     hover_temp = "<b>Étiquette:</b> %{label}<br><b>Nombre de publications:</b> %{value}<extra></extra>"
     return hover_temp
 
-def generate_hover_template_btb(cat, pop, doc, freq,grade,langue):
-    return f"<span> <b>Année: </b>{cat}<br> <b>Niveau d'étude: </b>{grade.title()}<br> <b>Langue: </b>{langue}<br> <b>No. de {doc} = </b>{pop}<br> <b>Pourcentage de {doc} = </b>{freq}%</span>"
+def get_hover_back_to_back(cat, pop, doc, freq,grade,langue):
+    hover_temp = f"<span> <b>Année: </b>{cat}<br> <b>Niveau d'étude: </b>{grade.title()}<br> <b>Langue: </b>{langue}<br> <b>No. de {doc} = </b>{pop}<br> <b>Pourcentage de {doc} = </b>{freq}%</span>"
+    return hover_temp

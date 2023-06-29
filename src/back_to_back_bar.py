@@ -4,6 +4,14 @@ from hover_template import get_hover_back_to_back_chart
 
 
 def distribution_language(df,grade,doc):
+     '''
+    This function generates a back to back bar chart,where the x-axis represents the number of theses/dissertations, and y-axis shows years.
+    The chart, shows back to back, the number of documents for a specific grade written in two langages 'French' and 'English'
+    :param df: (pandas dataframe) the dataset we have, and from which we will choose the right columns for visualization
+    :param grade: (str) the grade to visualize, can be 'maîtrise', or 'doctorat'
+    :param doc (str) the name of the document for which we gonna visualize the number. it is 'dissertation' for 'maîtrise', and 'thèses'for 'doctorat'
+    :return: (figure) the back to back bar chart
+    '''
     categories = df['année'].unique().tolist()
     data_en = df[(df['grade'] == grade) & (df['langue'].isin(['en']))]
     data_fr = df[(df['grade'] == grade) & (df['langue'].isin(['fr']))]

@@ -1,10 +1,11 @@
 '''
-    Contains two functions related to the creation of the Box plots.
+    Contains two functions related to the creation of the box plots.
 '''
 
 import plotly.graph_objects as go
 from hover_template import get_hover_box_plot
 import plotly.colors
+from helper import update_box_layout
 
 def overview_box_plot(filtered_df, context_title):
     '''
@@ -23,21 +24,13 @@ def overview_box_plot(filtered_df, context_title):
             y=filtered_df["pages"],
             name="grade"))
 
-    fig.update_layout(
-        title={
-            'text': title_text,
-            'x': 0.5,
-            'xanchor': 'center',
-            'yanchor': 'top'
-            },
-        xaxis_title="Année",
-        yaxis_title="Nombre de Pages",
-        showlegend=False)
+    fig = update_box_layout(fig, title_text, showlegend=False)
+
     fig.update_traces(
         hovertemplate=get_hover_box_plot(name_text=None),
-        marker=dict(color=color_palette[3]))
-    fig.update_layout(hovermode='x unified', )
-    fig.update_traces(hoveron="boxes", hoverinfo='all') 
+        marker=dict(color=color_palette[3]),
+        hoveron="boxes",
+        hoverinfo='all')
 
     return fig
 
@@ -69,19 +62,8 @@ def mvd_box_plot(filtered_df_maitrise, filtered_df_doctorat, context_title):
             name=phd,
             hovertemplate=get_hover_box_plot(name_text=phd),
             marker=dict(color=color_palette[1])))
-
-    fig.update_layout(
-        title={
-            'text': title_text,
-            'x': 0.5,
-            'xanchor': 'center',
-            'yanchor': 'top'
-            },
-        xaxis_title="Année",
-        yaxis_title="Nombre de Pages",
-        boxmode="group",
-        showlegend=True)
-    fig.update_layout(hovermode='x unified', )
+    fig.update_layout(boxmode="group")
+    fig = update_box_layout(fig, title_text, showlegend=True)
     fig.update_traces(hoveron="boxes", hoverinfo='all')
 
     return fig

@@ -22,13 +22,28 @@ def sunburst(df, mode):
     '''
     # definition of variables related to top languages and universities
     df_sun = df
-    df_sun['langue_new'] = df_sun['langue'].str.lower().map({'fr': 'fr', 'en': 'en'}).fillna('autres langues')
-    language_map = {"fr": "français", "en": "anglais", "autres langues": "autres langues"}
+    df_sun['langue_new'] = (
+        df_sun['langue']
+        .str.lower()
+        .map({'fr': 'fr', 'en': 'en'})
+        .fillna('autres langues')
+        )
+    language_map = {
+        "fr": "français",
+        "en": "anglais",
+        "autres langues": "autres langues"
+        }
     df_sun['langue_new'] = df_sun['langue_new'].map(language_map)
     df_sun = df_sun[~df_sun['langue_new'].isin(['autres langues'])]
-    df_domain_languages = df_sun.groupby(["domaine", "langue_new"], as_index=False).count()[["domaine", "langue_new", "grade"]]
+    df_domain_languages = (
+        df_sun.groupby(["domaine", "langue_new"], as_index=False)
+        .count()[["domaine", "langue_new", "grade"]]
+        )
     df_domain_languages.rename(columns={"grade": "count"}, inplace=True)
-    df_domain_uni = df_sun.groupby(["domaine", "univ"], as_index=False).count()[["domaine", "univ", "grade"]]
+    df_domain_uni = (
+        df_sun.groupby(["domaine", "univ"], as_index=False)
+        .count()[["domaine", "univ", "grade"]]
+        )
     df_domain_uni.rename(columns={"grade": "count"}, inplace=True)
     if mode == 'langue':
         labels = []
@@ -63,15 +78,19 @@ def sunburst(df, mode):
             text=[label.split('-')[-1].strip() for label in labels],
         ))
         fig.update_layout(width=700, height=700,
-                          title='La répartition des langues dans différents domaines',
+                          title='La répartition des langues dans'
+                                'différents domaines',
                           annotations=[dict(
-                            text="Cliquez sur chaque partie de domaine pour voir plus de détails.",
+                            text="Cliquez sur chaque partie de domaine pour"
+                                 "voir plus de détails.",
                             x=-0.05, y=1.05,
                             showarrow=False,
                             font=dict(size=12, color='black'),
                             ),
                             dict(
-                            text="Note: La classe de domaine du programme individualisé et les autres langues ont été exclues car elles sont illisibles.",
+                            text="Note: La classe de domaine du programme"
+                                 "individualisé et les autres langues ont été"
+                                 "exclues car elles sont illisibles.",
                             x=-0.15, y=-0.1,
                             showarrow=False,
                             font=dict(size=11, color='black'),
@@ -121,15 +140,19 @@ def sunburst(df, mode):
         ))
 
         fig.update_layout(width=700, height=700,
-                          title='La répartition des meilleures universités dans différents domaines',
+                          title='La répartition des meilleures universités '
+                                'dans différents domaines',
                           annotations=[dict(
-                              text='Cliquez sur chaque partie de domaine pour voir plus de détails.',
+                              text='Cliquez sur chaque partie de domaine pour'
+                                   'voir plus de détails.',
                               x=-0.05, y=1.05,
                               showarrow=False,
                               font=dict(size=12, color='black'),
                           ),
                             dict(
-                            text="Note: La classe de domaine du programme individualisé a été exclue car elle est illisible.",
+                            text="Note: La classe de domaine du programme"
+                                 "individualisé a été exclue car elle est"
+                                 "illisible.",
                             x=-0.15, y=-0.1,
                             showarrow=False,
                             font=dict(size=11, color='black'),

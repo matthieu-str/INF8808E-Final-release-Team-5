@@ -1,6 +1,6 @@
 def update_navlink_styles(pathname):
+
     "Helper function to render the navigation links"
-    
     styles = [{"backgroundColor": "grey", "border-radius": "30px"} for _ in range(7)]
     if pathname == "/":
         styles[0]["backgroundColor"] = "blue"

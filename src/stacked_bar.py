@@ -28,21 +28,28 @@ def get_figure(data, colored, domaine):
     df_grouped = df_grouped.sort_values('total', ascending=True)
 
     # Create the stacked bar chart using Plotly Express
-    fig = px.bar(df_grouped, y='discipline', x=list(data[colored].unique()), 
-            title="Visualisation de la distribution "+Variable_options[colored]+" dans les disciplines du domaine "+domaine, orientation='h',
+    fig = px.bar(df_grouped, y='discipline', x=list(data[colored].unique()), orientation='h',
              barmode='stack')
     fig.update_traces(hovertemplate=get_hover_stacked_bar_chart())
     # Update the x-axis label using plotly graph object
-    fig.update_xaxes(title_text="Nombre de publications",title_font=dict(size=20))
+    fig.update_xaxes(title_text="Nombre de publications",title_font=dict(size=15))
     # Update the y-axis label using plotly graph object
     fig.update_layout(yaxis_title="")
     # Update the layout to remove the y-axis label
     fig.update_layout(title=dict(text='Discipline',
-                                     x=0.15,
-                                     y=0.92,
                                      xanchor='left',
                                      yanchor='top',
-                                     font=dict(size=20)))
+                                     font=dict(size=15),
+                                     x=0.13,
+                                     y=0.95))
+    fig.add_annotation(text="Visualisation de la distribution "+Variable_options[colored]+" dans les disciplines du domaine "+domaine,
+                                     #x=0.15,
+                                     y=1.09,
+                                     showarrow=False,
+                                     align='left',
+                                     xref='paper',
+                                     yref='paper',
+                                     font=dict(size=18))
     # Size and title of figure
-    fig.update_layout(height=900, width=900, legend_title='Catégories '+Variable_options[colored])
+    fig.update_layout(height=800, width=1200, legend_title='Catégories '+Variable_options[colored])
     return fig

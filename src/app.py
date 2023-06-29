@@ -106,23 +106,11 @@ footer = html.Footer(
     ],
 )
 
-# App layout
-def welcome_page():
-    return html.Div(className='welcome-page-container', children=[
-        html.Div(className='content', children=[
-            html.Div(className='welcome-title', children=[
-                'Études supérieures dans les universités québécoises entre 2000 et 2022'
-            ])
-        ]),
-    ])
-
-
 app.layout = html.Div(
     className="app-container",
     children=[
         dcc.Location(id="url", refresh=False),
-        html.Header([
-            welcome_page(),  
+        html.Header([ 
             navbar,
         ]),
         html.Div(id="page-content"),

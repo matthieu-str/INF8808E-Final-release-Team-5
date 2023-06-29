@@ -5,7 +5,13 @@ from hover_template import get_hover_stacked_area_chart
 
 
 def get_figure(df, y_axis, mode):
-
+    '''
+    This function generates the stacked area figure, with its different y-axis and mode possibilities.
+    :param df: (pandas dataframe) data to visualize after basic pre-processing
+    :param y_axis: (str) y-axis to visualize, can be 'univ', 'domaine', 'langue' or 'grade'
+    :param mode: (str) mode of the chart, can be 'count' for counting the number of publications or 'percentage' for normalized values.
+    :return: (figure) the stacked area chart
+    '''
     titles = {'univ': 'Université',
               'domaine': 'Domaine',
               'langue': 'Langue',

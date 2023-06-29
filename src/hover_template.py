@@ -1,9 +1,10 @@
-## hover templet for Radar chart 
+## hover templet for Radar chart (1)
 def get_hover_univ(x_freq, y_freq, universities):
     hovertext_master = [f'<b>Maîtrise</b><br>Université: {uni}<br>No. de thèses: {x_freq[uni] if uni in x_freq else 0}' for uni in universities]
     hovertext_doctorat = [f'<b>Doctorat</b><br>Université: {uni}<br>No. de dissertations: {y_freq[uni] if uni in y_freq else 0}' for uni in universities]
     return hovertext_master, hovertext_doctorat
 
+## hover templet for Radar chart (2)
 def get_hover_discipline():
     hovertemplate_master = '<b>Maîtrise</b><br>Discipline: %{theta}<br>No. de thèses: %{r}<extra></extra>'
     hovertemplate_doctorat = '<b>Doctorat</b><br>Discipline: %{theta}<br>No. de dissertations: %{r}<extra></extra>'

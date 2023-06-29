@@ -18,6 +18,8 @@ from back_to_back_bar import back_to_back, distribution_language
 from sunburstchart import sunburst
 from radar_chart import init_figure, update_graph
 
+# Create the Dash app
+app = dash.Dash(__name__)
 
 # Load the dataset
 df = pd.read_csv("assets/data/thesesMemoiresQC2000-2022-v20230508-1.csv", na_values="?")
@@ -41,8 +43,6 @@ stacked_bar_down_options = [
                         {'label': 'Nombre de pages', 'value': 'range of pages'}
                     ]
 
-# Create the Dash app
-app = dash.Dash(__name__)
 
 # Navbar
 navbar = html.Nav(
@@ -107,7 +107,7 @@ navbar = html.Nav(
 footer = html.Footer(
     className="footer",
     children=[
-        html.P("Cette application Web a été développée en tant que projet dans le cadre du cours INF8808E de Polytechnic Montréal."),
+        html.P("Cette application Web a été développée en tant que projet dans le formidable cours INF8808E de Polytechnique Montréal."),
     ],
 )
 
@@ -186,15 +186,24 @@ def render_page_content(pathname):
                     className="section-title"
                 ),
                 html.P(
-                    "Stacked Area chart : affiche les tendances temporelles du nombre de publications en fonction de variables majeures telles que les domaines, les universités, les langues et les niveaux d'études. Ces informations peuvent être affichées en mode pourcentage ou comptage.",
+                    [
+                        html.B("Stacked Area chart"),
+                        ": affiche les tendances temporelles du nombre de publications en fonction de variables majeures telles que les domaines, les universités, les langues et les niveaux d'études. Ces informations peuvent être affichées en mode pourcentage ou comptage."
+                    ],
                     className="section-text"
                 ),
                 html.P(
-                    "Back to back chart : présente l'évolution de la répartition des langues entre les années et les diplômes (maîtrise et doctorat) dans les universités québécoises entre 2000 et 2022.",
+                    [
+                        html.B("Back to back chart"),
+                        ": présente l'évolution de la répartition des langues entre les années et les diplômes (maîtrise et doctorat) dans les universités québécoises entre 2000 et 2022."
+                    ],
                     className="section-text"
                 ),
                 html.P(
-                    "Box plot : montre l'évolution de la longueur des publications au fil des années en fonction des niveaux d'études, des domaines ou des langues.",
+                    [
+                        html.B("Box plot"),
+                        ": aussi appelé diagramme en boîte, montre l'évolution de la longueur des publications au fil des années en fonction des niveaux d'études, des domaines ou des langues."
+                    ],
                     className="section-text"
                 ),
                 html.H2(
@@ -202,15 +211,24 @@ def render_page_content(pathname):
                     className="section-title"
                 ),
                 html.P(
-                    "Stacked bar chart : donne un aperçu de la répartition des langues, des diplômes, des universités ou même du nombre de pages dans les différentes disciplines qui ont été catégorisées en fonction du domaine principal.",
+                    [
+                        html.B("Stacked bar chart"),
+                        ": donne un aperçu de la répartition des langues, des diplômes, des universités ou même du nombre de pages dans les différentes disciplines qui ont été catégorisées en fonction du domaine principal."
+                    ],
                     className="section-text"
                 ),
                 html.P(
-                    "Radar chart : présente des informations relatives aux différents types de diplômes (Maîtrise et doctorat). Ces informations peuvent être visualisées sur différentes universités ou sur les plus importantes disciplines existantes.",
+                    [
+                        html.B("Radar chart"),
+                        ": présente des informations relatives aux différents types de diplômes (Maîtrise et doctorat). Ces informations peuvent être visualisées sur différentes universités ou sur les plus importantes disciplines existantes."
+                    ],
                     className="section-text"
                 ),
                 html.P(
-                    "Sunburst chart : vise à montrer la répartition des langues des documents en fonction des domaines ou des universités.",
+                    [
+                        html.B("Sunburst chart"),
+                        ": vise à montrer la répartition des langues des documents en fonction des domaines ou des universités."
+                    ],
                     className="section-text"
                 ),
             ]

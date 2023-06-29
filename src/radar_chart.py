@@ -5,6 +5,16 @@ from hover_template import get_hover_univ, get_hover_discipline
 
 
 def update_graph(df, mode):
+     """
+    Function to generate the radar graph and layout based on the selected mode .
+
+    Args:
+    df: The DataFrame containing the data to be plotted.
+    mode (str): The mode to generate graph. It can be either 'univ' or 'discipline'.
+    
+    Returns:
+    The radar graph with the layout.
+    """
     x = "maîtrise"
     y = "doctorat"
 

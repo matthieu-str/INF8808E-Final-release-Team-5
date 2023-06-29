@@ -98,6 +98,13 @@ def distribution_language(df,grade,doc):
     return fig
 
 def back_to_back(df,grade):
+     '''
+    This function generates a back to back bar chart,where the x-axis represents the number of theses/dissertations, and y-axis shows years.
+    The chart, shows back to back, the number of documents for a specific grade written in two langages 'French' and 'English'. It calls another the distribution_language function above to display a chart depending on the grade
+    :param df: (pandas dataframe) the dataset we have, and from which we will choose the right columns for visualization
+    :param grade: (str) the grade to visualize, can be 'maîtrise', or 'doctorat'
+    :return: (figure) the back to back bar chart
+    '''
     if (grade == 'doctorat'):
         fig = distribution_language(df,'doctorat', 'thèses')
     else:

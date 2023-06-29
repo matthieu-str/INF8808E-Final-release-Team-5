@@ -15,6 +15,8 @@ def distribution_language(df,grade,doc):
     categories = df['année'].unique().tolist()
     data_en = df[(df['grade'] == grade) & (df['langue'].isin(['en']))]
     data_fr = df[(df['grade'] == grade) & (df['langue'].isin(['fr']))]
+    langue_fr = 'Français'
+    langue_en ='Anglais'
     
     # Group by Year and Language and calculate the count
     language_counts_en = data_en.groupby(['année', 'langue']).size().reset_index(name='Count')
@@ -54,16 +56,16 @@ def distribution_language(df,grade,doc):
       y=categories,
       x=en_pop,
       orientation='h',
-      name='anglais',
-      hovertemplate= [get_hover_back_to_back_chart(cat, pop, doc, freq) for cat, pop, freq in zip(categories, en_pop, freq_en)]
+      name='Anglais',
+      hovertemplate= [generate_hover_template_btb(cat, pop, doc, freq,grade,langue_en) for cat, pop, freq in zip(categories, en_pop, freq_en)]
 
   ))
     fig.add_trace(go.Bar(
       y=categories,
       x=[-pop for pop in fr_pop],
       orientation='h',
-      name='français',
-      hovertemplate= [get_hover_back_to_back_chart(cat, pop, doc, freq) for cat, pop, freq in zip(categories, fr_pop, freq_fr)]
+      name='Français',
+      hovertemplate= [generate_hover_template_btb(cat, pop, doc, freq,grade,langue_fr) for cat, pop, freq in zip(categories, fr_pop, freq_fr)]
 
   ))
     fig.update_layout(

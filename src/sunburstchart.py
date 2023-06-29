@@ -56,7 +56,7 @@ def sunburst(df, mode):
                             font=dict(size=12, color='black'),
                             ),
                             dict(
-                            text="Note: La classe de domaine du programme individualisé et les autres langues ont été exclues parce qu'elles sont illisibles.",
+                            text="Note: La classe de domaine du programme individualisé et les autres langues ont été exclues car elles sont illisibles.",
                             x=-0.15, y=-0.1,
                             showarrow=False,
                             font=dict(size=12, color='black'),

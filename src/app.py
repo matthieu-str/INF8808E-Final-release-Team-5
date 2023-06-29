@@ -109,8 +109,6 @@ footer = html.Footer(
 
 # App layout
 
-#image_path = "assets/header.jpg"
-
 def welcome_page():
     return html.Div(className='welcome-page-container', children=[
         html.Div(className='content', children=[
@@ -133,10 +131,7 @@ app.layout = html.Div(
         footer,
     ],
 )
-
-#for css in external_css:
-    #app.css.append_css({"external_url": css})
-
+# Apply the css style sheet
 app.css.external_stylesheets = external_css
 
 # Update active navlink color

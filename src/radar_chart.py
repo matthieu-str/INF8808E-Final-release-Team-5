@@ -45,7 +45,7 @@ def update_graph(mode):
                 )
             ),
             showlegend = True,
-            title = f"{x} vs {y} par l'Université",
+            title = f"Le nombre de grades de {x} et de {y} pour chaque université",
             legend=dict(x=.8, y=1),  # Adjust position of the legend
             annotations=[
                 dict(
@@ -95,7 +95,7 @@ def update_graph(mode):
                 )
             ),
             showlegend = True,
-            title = f"{x} vs {y} par top 10 des disciplines"
+            title = f"Les dix premières disciplines pour {x} and {y}"
         )
 
     return {'data': data, 'layout': layout}

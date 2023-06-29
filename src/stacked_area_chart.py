@@ -91,5 +91,6 @@ def get_figure(df, y_axis, mode):
                                      yanchor='top',
                                      font=dict(size=20),
                                      y=0.88))
+    fig.update_traces(hoverlabel=dict(namelength=0))    
 
     return fig

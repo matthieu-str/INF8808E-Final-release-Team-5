@@ -1,7 +1,6 @@
 '''
 
-Import libraries
-
+Preprocessing the data
 '''
 import pandas as pd
 

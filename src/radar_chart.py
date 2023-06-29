@@ -5,13 +5,12 @@ from hover_template import get_hover_univ, get_hover_discipline
 
 
 def update_graph(df, mode):
-     """
-    Function to generate the radar graph and layout based on the selected mode .
-
+    """
+    Function to generate the radar graph and layout based on the selected mode.
     Args:
     df: The DataFrame containing the data to be plotted.
-    mode (str): The mode to generate graph. It can be either 'univ' or 'discipline'.
-    
+    mode (str): The mode to generate graph.
+                It can be either 'univ' or 'discipline'.
     Returns:
     The radar graph with the layout.
     """
@@ -61,11 +60,12 @@ def update_graph(df, mode):
                 radialaxis=dict(
                     visible=True,
                     range=[0, max_range],
-                    tickfont=dict(size=13)  # Increase the font size
+                    tickfont=dict(size=13),  # Increase the font size
+                    tickangle=90,
                 )
             ),
             showlegend=True,
-            title=(f"Le nombre de grades de {x} et de {y}"
+            title=(f"Le nombre de publications de {x} et de {y}"
                    " pour chaque université"),
             legend=dict(
                 x=.8,
@@ -123,7 +123,8 @@ def update_graph(df, mode):
                 )
             ),
             showlegend=True,
-            title=(f"Les dix premières disciplines pour {x} and {y}"),
+            title=(f"Nombre de publications pour {x} et {y}"
+                   " dans les dix premières disciplines"),
             legend=dict(
                 x=.8,
                 y=1,

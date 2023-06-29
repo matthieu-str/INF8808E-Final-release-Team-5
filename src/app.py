@@ -293,7 +293,7 @@ def render_page_content(pathname):
                     children=[
                         dcc.Graph(
                             id='radar-graph-univ',
-                            figure=init_figure()
+                            figure=init_figure(df)
                         ),
                     ],
                 ),
@@ -303,7 +303,7 @@ def render_page_content(pathname):
                     children=[
                         dcc.Graph(
                             id='radar-graph-discipline',
-                            figure=update_graph('discipline')
+                            figure=update_graph(df,'discipline')
                         ),
                     ],
                 ),
@@ -654,10 +654,10 @@ def update_stacked_bar(n_clicks, checkbox1_value, checkbox2_value):
 )
 def update_radar_chart(n_clicks, dropdown_univ_discipline_value):
     if n_clicks is not None:
-        figure = update_graph(dropdown_univ_discipline_value)
+        figure = update_graph(df,dropdown_univ_discipline_value)
         return figure
     else:
-        default_figure = init_figure()
+        default_figure = init_figure(df)
         return default_figure 
 # back to back
 @app.callback(

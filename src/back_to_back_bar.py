@@ -1,6 +1,6 @@
 from operator import add
 import plotly.graph_objects as go
-from hover_template import generate_hover_template_btb
+from hover_template import get_hover_back_to_back
 
 
 def distribution_language(df, grade, doc):
@@ -72,7 +72,7 @@ def distribution_language(df, grade, doc):
       orientation='h',
       name='Anglais',
       hovertemplate=[
-          generate_hover_template_btb(cat, pop, doc, freq, grade, langue_en)
+          get_hover_back_to_back(cat, pop, doc, freq, grade, langue_en)
           for cat, pop, freq in zip(categories, en_pop, freq_en)]))
     fig.add_trace(go.Bar(
       y=categories,
@@ -80,7 +80,7 @@ def distribution_language(df, grade, doc):
       orientation='h',
       name='Français',
       hovertemplate=[
-          generate_hover_template_btb(cat, pop, doc, freq, grade, langue_fr)
+          get_hover_back_to_back(cat, pop, doc, freq, grade, langue_fr)
           for cat, pop, freq in zip(categories, fr_pop, freq_fr)]))
     fig.update_layout(
       height=700,

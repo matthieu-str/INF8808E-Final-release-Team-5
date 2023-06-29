@@ -6,6 +6,17 @@ Variable_options = {'grade': "des niveaux d'études", 'univ': 'des universités'
                     'range of pages': 'du nombre de pages'}
 
 def get_figure(data, colored, domaine):
+    '''
+    This function generates a stacked bar chart showing the distribution of the number of publications for different disciplines and for different variables such as universities, languages and degree levels. 
+    Inputs : 
+    
+    df : is the data frame that contains all the information.
+    colored : takes the variable that will be studied (universities, languages, degree levels or number of pages) based on the number of publications.
+    domaine : contains the major field.
+
+    Output : It returns the stacked bar chart.
+
+    '''
     data = data[data['domaine'] == domaine]
     if colored == 'range of pages':
         data = data[data['range of pages'] != '0']

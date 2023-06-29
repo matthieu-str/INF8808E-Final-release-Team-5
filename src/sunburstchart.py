@@ -2,7 +2,17 @@ import plotly.graph_objects as go
 from hover_template import get_hover_sunburst_chart_langue, get_hover_sunburst_chart_univ
 
 def sunburst(df, mode):
-    
+    '''
+    This function displays the sunburst graph showing the distribution of languages or universities in the main fields.
+
+    Inputs :
+    df : represents the data frame containing all the information.
+    mode : takes the university or language variable according to the factor whose distribution we want to see within the main field.
+
+    output:
+    Returns the sunburst chart.
+    '''
+    # definition of variables related to top languages and universities
     df_sun = df
     df_sun['langue_new'] = df_sun['langue'].str.lower().map({'fr': 'fr', 'en': 'en'}).fillna('autres langues')
     language_map = {"fr": "français", "en": "anglais", "autres langues": "autres langues"}

@@ -1,5 +1,5 @@
 '''
-Import libraries
+Stacked bar chart
 '''
 import plotly.express as px
 from preprocess import rename_languages

@@ -48,15 +48,16 @@ def get_figure(data, colored, domaine):
     fig.update_traces(hovertemplate=get_hover_stacked_bar_chart())
     # Update the x-axis label using plotly graph object
     fig.update_xaxes(title_text="Nombre de publications",title_font=dict(size=15))
-    # Update the y-axis label using plotly graph object
-    fig.update_layout(yaxis_title="")
     # Update the layout to remove the y-axis label
+    fig.update_layout(yaxis_title="")
+    # Update the y-axis label using plotly graph object
     fig.update_layout(title=dict(text='Discipline',
                                      xanchor='left',
                                      yanchor='top',
                                      font=dict(size=15),
                                      x=0.13,
                                      y=0.95))
+    # Update the title using the annotation, which is the only way to display the y-axis horizontally with a title
     fig.add_annotation(text="Visualisation de la distribution "+Variable_options[colored]+" dans les disciplines du domaine "+domaine,
                                      #x=0.15,
                                      y=1.09,

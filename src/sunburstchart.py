@@ -79,18 +79,18 @@ def sunburst(df, mode):
         ))
         fig.update_layout(width=700, height=700,
                           title='La répartition des langues dans'
-                                'différents domaines',
+                                ' différents domaines',
                           annotations=[dict(
                             text="Cliquez sur chaque partie de domaine pour"
-                                 "voir plus de détails.",
+                                 " voir plus de détails.",
                             x=-0.05, y=1.05,
                             showarrow=False,
                             font=dict(size=12, color='black'),
                             ),
                             dict(
                             text="Note: La classe de domaine du programme"
-                                 "individualisé et les autres langues ont été"
-                                 "exclues car elles sont illisibles.",
+                                 " individualisé et les autres langues ont été"
+                                 " exclues car elles sont illisibles.",
                             x=-0.15, y=-0.1,
                             showarrow=False,
                             font=dict(size=11, color='black'),
@@ -140,19 +140,19 @@ def sunburst(df, mode):
         ))
 
         fig.update_layout(width=700, height=700,
-                          title='La répartition des meilleures universités '
-                                'dans différents domaines',
+                          title='La répartition des meilleures universités'
+                                ' dans différents domaines',
                           annotations=[dict(
                               text='Cliquez sur chaque partie de domaine pour'
-                                   'voir plus de détails.',
+                                   ' voir plus de détails.',
                               x=-0.05, y=1.05,
                               showarrow=False,
                               font=dict(size=12, color='black'),
                           ),
                             dict(
                             text="Note: La classe de domaine du programme"
-                                 "individualisé a été exclue car elle est"
-                                 "illisible.",
+                                 " individualisé a été exclue car elle est"
+                                 " illisible.",
                             x=-0.15, y=-0.1,
                             showarrow=False,
                             font=dict(size=11, color='black'),

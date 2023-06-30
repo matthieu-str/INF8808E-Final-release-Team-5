@@ -101,7 +101,7 @@ def distribution_language(df, grade, doc):
                                  font=dict(size=15),
                                  x=0.02,
                                  y=0.88))
-    fig.add_annotation(text="Répartition de l'anglais et du français pour les"
+    fig.add_annotation(text="Répartition de l'anglais et du français pour les "
                        + doc,
                        y=1.1,
                        showarrow=False,
